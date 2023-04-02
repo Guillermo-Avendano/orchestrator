@@ -1,0 +1,22 @@
+version: "3.0"
+volumes:
+  msdata:
+  mslogs:
+  mssecr:
+
+services:
+  
+  mssql2017:
+    image: 'mcr.microsoft.com/mssql/server:2017-latest'
+    container_name: mssql2017
+    hostname: mssql2017
+    ports:
+      - '1433:1433'    
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "P@ssword"
+    volumes:
+    - msdata:/var/opt/mssql/data
+    - mslogs:/var/opt/mssql/log
+    - mssecr:/var/opt/mssql/secrets
+    - ./samples:/samples

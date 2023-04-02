@@ -1,0 +1,6 @@
+#!/bin/bash
+docker exec -it mssql2017 bash 
+
+/opt/mssql-tools/bin/sqlcmd -U sa -P "P@ssword" -i /samples/pubs_db.sql
+
+/opt/mssql-tools/bin/sqlcmd -U sa -P "P@ssword" -i /samples/northwind_db.sql

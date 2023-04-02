@@ -1,0 +1,49 @@
+{{- if .Values.scheduler.database.init -}}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: aeo-postgres
+spec:
+  replicas: 1 
+  serviceName: "aeo-postgres"
+  selector:
+    matchLabels:
+      app: aeo-postgres
+  template:
+    metadata:
+      labels:
+        app: aeo-postgres
+    spec:
+      #initContainers:
+      #- name: fetch
+      #  image: mwendler/wget
+      #  command: ["wget","--no-check-certificate","https://github/sql/aeo-init.sql","-O","/docker-entrypoint-initdb.d/aeo-init.sql"]
+      #  volumeMounts:
+      #  - mountPath: /docker-entrypoint-initdb.d
+      #    name: dump
+      containers:
+      - name: aeo-postgres
+        image: {{ .Values.scheduler.database.image }}
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: {{ .Values.scheduler.database.name }}
+        - name: POSTGRES_USER
+          value: {{ .Values.scheduler.database.user }}
+        - name: POSTGRES_PASSWORD
+          value: {{ .Values.scheduler.database.user }}
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: pvc-aeo-postgres
+        - mountPath: /docker-entrypoint-initdb.d/
+          name: aeo-dbfile-configmap
+      volumes:
+      - name: pvc-aeo-postgres
+        persistentVolumeClaim:
+          claimName: pvc-aeo-postgres
+      - name: aeo-dbfile-configmap
+        configMap:
+          name: aeo-dbfile-configmap
+{{- end }}

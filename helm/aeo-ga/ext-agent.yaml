@@ -1,0 +1,21 @@
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: "aeo-agent-external"
+spec:
+  ports:
+    - name: "aeo-agent-external"
+      protocol: "TCP"
+      port: 7913
+      targetPort: 7913 
+---
+kind: "Endpoints"
+apiVersion: "v1"
+metadata:
+  name: "ubuntuserver"
+subsets: 
+  - addresses:
+      - ip: "192.168.186.131" #The IP Address of the external web server
+    ports:
+      - port: 7913 
+        name: "aeo-agent-external"

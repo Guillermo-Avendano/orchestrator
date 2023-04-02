@@ -1,0 +1,16 @@
+{{- if .Values.agent.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app:  {{ .Values.agent.name }} 
+  name:  {{ .Values.agent.name }} 
+spec:
+  type: NodePort
+  ports:
+  - name: "7913"
+    port: 7913
+    targetPort: 7913
+  selector:
+    app:  {{ .Values.agent.name }} 
+{{- end }}

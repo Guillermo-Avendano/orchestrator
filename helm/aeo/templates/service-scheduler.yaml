@@ -1,0 +1,15 @@
+{{- if .Values.scheduler.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.scheduler.name }} 
+  name: {{ .Values.scheduler.name }} 
+spec:
+  ports:
+  - name: "7910"
+    port: 7910
+    targetPort: 7910
+  selector:
+    app: {{ .Values.scheduler.name }} 
+{{- end }}

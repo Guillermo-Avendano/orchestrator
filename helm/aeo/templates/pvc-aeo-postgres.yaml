@@ -1,0 +1,13 @@
+{{- if .Values.scheduler.database.init -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-aeo-postgres
+spec:
+  accessModes:
+    - ReadWriteMany
+  #storageClassName: {{ .Values.storageClassName }}
+  resources:
+    requests:
+      storage: 5Gi
+{{- end }}

@@ -1,0 +1,16 @@
+apiVersion: v2
+appVersion: "4.3.888"
+description: Enterprise Orchestrator is a DevOps value stream management platform that enables infrastructure and operations (I&O) and DevOps teams to visualize, orchestrate and automate development and operational value streams for creating and delivering digital solutions across operating systems, platforms and enterprise software packages—from mainframe to cloud.
+home: https://www.rocketfotware.com
+keywords:
+- rocket
+- aeo
+- server
+- scheduler
+maintainers:
+- name: gavendano
+  email: gavendano@rocketsoftware.com
+- name: soliveira
+  email: soliveira@rocketsoftware.com
+name: Enterprise Orchestrator
+version: 3.0.0

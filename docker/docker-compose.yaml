@@ -1,0 +1,84 @@
+version: "3.0"
+volumes:
+  pgdata:
+
+services:
+  
+  aeo-postgres:
+    image: 'postgres:12-alpine'
+    container_name: aeo-postgres
+    hostname: aeo-postgres
+    ports:
+      - '5432:5432'    
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+    - pgdata:/var/lib/postgresql/data
+    - ./create-database.sh:/docker-entrypoint-initdb.d/create-database.sh
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    
+  aeo-agent:
+    container_name: aeo-agent
+    hostname: aeo-agent
+    image: aeo-agent:4.3.1.58
+    ports:
+      - '7913:7913'    
+    volumes:
+      - ./agent_data:/opt/aeo/data
+      - ./agent_bin:/opt/aeo/agent/xagent_1
+
+  aeo-scheduler:
+    container_name: aeo-scheduler
+    hostname: aeo-scheduler
+    image: aeo-scheduler:4.3.1.59
+    ports:
+      - '7910:7910'       
+    volumes:
+      - ./scheduler_data:/opt/aeo/data
+    environment:
+      DB_DRIVER: "$db_driver"
+      DB_URL: "$db_url"
+      DB_NAME: "$db_name"
+      DB_SERVER: "$db_server"
+      DB_USER: "$db_user"
+      DB_PASSWORD: "$db_password"   
+      DB_TYPE: "POSTGRESQL"    
+      PORT: "7910"
+    depends_on:
+    - aeo-postgres
+  
+  aeo-check-scheduler:
+    container_name: check-scheduler
+    image: busybox
+    healthcheck:
+      test: [ "CMD-SHELL", "nslookup port 7910 aeo-scheduler" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  aeo-clientmgr:
+    container_name: aeo-clientmgr
+    hostname: aeo-clientmgr
+    image: aeo-clientmgr:4.3.1.59
+    ports:
+      - '7980:7980'
+      - '7911:7911' 
+    volumes:
+      - ./clientmgr_data:/opt/aeo/data
+    environment:
+      DB_DRIVER: "$db_driver"
+      DB_URL: "$db_url"
+      DB_NAME: "$db_name"
+      DB_SERVER: "$db_server"
+      DB_USER: "$db_user"
+      DB_PASSWORD: "$db_password"    
+      DB_TYPE: "POSTGRESQL"
+      PORT: "7980"
+    depends_on:
+    - aeo-check-scheduler 

@@ -1,0 +1,51 @@
+{{- if .Values.scheduler.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{ .Values.scheduler.name }} 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  {{ .Values.scheduler.name }} 
+  template:
+    metadata:
+      labels:
+        app:  {{ .Values.scheduler.name }} 
+    spec:
+      hostname:  {{ .Values.scheduler.name }} 
+      initContainers:
+      - name: aeo-checkdb
+        image: {{ .Values.scheduler.database.image }}
+        command: ['sh', '-c', 'echo "{{ .Values.scheduler.database.server }}:5432:aeo:aeo:aeo" > ~/.pgpass; chmod 0600 ~/.pgpass ; until psql -U {{ .Values.scheduler.database.user }} -d {{ .Values.scheduler.database.name }} -h {{ .Values.scheduler.database.server }} -c "SELECT count (*) FROM services" ; do echo "database do not exist!" ; sleep 2 ; done;']
+      containers:
+      - name:  {{ .Values.scheduler.name }} 
+        image: {{ .Values.scheduler.image }}
+        imagePullPolicy: IfNotPresent        
+        ports:
+          - containerPort: 7910
+        env:      
+          - name: DB_DRIVER
+            value: {{ .Values.scheduler.database.driver }}  
+          - name: DB_TYPE
+            value: {{ .Values.scheduler.database.type }}   
+          - name: DB_URL
+            value: {{ .Values.scheduler.database.url }}  
+          - name: DB_NAME
+            value: {{ .Values.scheduler.database.name }}  
+          - name: DB_SERVER
+            value: {{ .Values.scheduler.database.server }}  
+          - name: DB_USER
+            value: {{ .Values.scheduler.database.user }}  
+          - name: DB_PASSWORD
+            value: {{ .Values.scheduler.database.password }}  
+          - name: PORT
+            value: "7910"
+        volumeMounts:
+            - mountPath: /opt/aeo/data
+              name: pvc-aeo-scheduler
+      volumes:
+        - name: pvc-aeo-scheduler
+          persistentVolumeClaim:
+            claimName: pvc-aeo-scheduler
+{{- end }}

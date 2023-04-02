@@ -1,0 +1,9 @@
+
+helm install aeo aeo-ga/aeo431.tgz --namespace=aeo --create-namespace -f aeo-ga/values-full.yaml --wait
+helm install aeo aeo-ga/aeo431.tgz --namespace=aeo --create-namespace -f aeo-ga/values-scheduler.yaml --wait
+
+
+helm install honda aeo-ga/aeo431.tgz --namespace=honda -f aeo-ga/values-agent-honda.yaml --wait
+
+
+helm install aeo-dbremote aeo-ga/aeo431.tgz --namespace=aeo-dbremote --create-namespace -f aeo-ga/values-full-db-remote.yaml --wait

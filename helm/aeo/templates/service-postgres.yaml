@@ -1,0 +1,15 @@
+{{- if .Values.scheduler.database.init -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: aeo-postgres
+  name: aeo-postgres
+spec:
+  ports:
+  - name: "5432"
+    port: 5432
+    targetPort: 5432
+  selector:
+    app: aeo-postgres
+{{- end }}

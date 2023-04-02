@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: aeo430-init
+  #  pods=$(kubectl get pods --selector=job-name=aeo430-init --output=jsonpath='{.items[*].metadata.name}')
+  #  kubectl logs $pods
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: get-sql-script
+        image: mwendler/wget
+        command: ["wget","--no-check-certificate","https://raw.githubusercontent.com/Guillermo-Avendano/honda-app1/main/aeo_430.sql","-O","/data/aeo_430.sql"]
+        resources:
+          requests:
+            ephemeral-storage: "1Gi"
+          limits:
+            ephemeral-storage: "2Gi"
+        volumeMounts:
+        - mountPath: /data
+          name: pvc-init-aeo
+      containers:
+        - name: aeo-init-postgres
+          image: postgres:12-alpine
+          command: ['sh', '-c', 'echo "postgresdb-postgresql-hl.postgres:5432:aeo:aeo:aeo" > ~/.pgpass; chmod 0600 ~/.pgpass ; psql -U aeo -d aeo -h postgresdb-postgresql-hl.postgres -f /data/aeo_430.sql ;']
+          resources:
+            requests:
+              ephemeral-storage: "1Gi"
+            limits:
+              ephemeral-storage: "2Gi"          
+          volumeMounts:
+          - mountPath: /data
+            name: pvc-init-aeo
+      restartPolicy: Never
+      volumes:
+        - name: pvc-init-aeo
+          emptyDir: {}     
+  backoffLimit: 4

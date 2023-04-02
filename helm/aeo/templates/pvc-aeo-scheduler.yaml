@@ -1,0 +1,13 @@
+{{- if .Values.scheduler.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-aeo-scheduler
+spec:
+  accessModes:
+    - ReadWriteMany
+  #storageClassName: {{ .Values.storageClassName }}
+  resources:
+    requests:
+      storage: 1Gi
+{{- end }}      
