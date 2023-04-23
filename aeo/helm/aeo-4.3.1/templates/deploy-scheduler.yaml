@@ -26,19 +26,19 @@ spec:
           - containerPort: 7910
         env:      
           - name: DB_DRIVER
-            value: {{ .Values.scheduler.database.driver }}  
+            value: {{ .Values.database.driver }}  
           - name: DB_TYPE
-            value: {{ .Values.scheduler.database.type }}   
+            value: {{ .Values.database.type }}   
           - name: DB_URL
-            value: {{ .Values.scheduler.database.url }}  
+            value: {{ .Values.database.url }}  
           - name: DB_NAME
-            value: {{ .Values.scheduler.database.name }}  
+            value: {{ .Values.database.name }}  
           - name: DB_SERVER
-            value: {{ .Values.scheduler.database.server }}  
+            value: {{ .Values.database.server }}  
           - name: DB_USER
-            value: {{ .Values.scheduler.database.user }}  
+            value: {{ .Values.database.user }}  
           - name: DB_PASSWORD
-            value: {{ .Values.scheduler.database.password }}  
+            value: {{ .Values.database.password }}  
           - name: PORT
             value: "7910"
         volumeMounts:

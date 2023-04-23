@@ -1,0 +1,66 @@
+image:
+  tag: 14.5.0
+
+## @section Global parameters
+## Please, note that this will override the parameters, including dependencies, configured to use the global value
+##
+global:
+  postgresql:
+    ## @param global.postgresql.auth.postgresPassword Password for the "postgres" admin user (overrides `auth.postgresPassword`)
+    ## @param global.postgresql.auth.username Name for a custom user to create (overrides `auth.username`)
+    ## @param global.postgresql.auth.password Password for the custom user to create (overrides `auth.password`)
+    ## @param global.postgresql.auth.database Name for a custom database to create (overrides `auth.database`)
+    ## @param global.postgresql.auth.existingSecret Name of existing secret to use for PostgreSQL credentials (overrides `auth.existingSecret`)
+    ##
+    auth:
+      postgresPassword: postgres
+      username: mobius
+      password: postgres
+      database: postgres
+    service:
+      ports:
+        postgresql: 5432
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 100Mi
+  limits:
+    cpu: 100m
+    memory: 512Mi
+
+## @section PostgreSQL Primary parameters
+##
+primary:
+  persistence:
+    existingClaim: postgresql-pv-claim
+    storageClass: manual
+    size: 1Gi
+
+  extraEnvVars:
+    - name: HOME
+      value: "/bitnami/postgresql/data"
+    - name: PGHOST
+      value: "localhost"
+    - name: PGSSLMODE
+      value: "prefer"
+
+  ## Initdb configuration
+  ## ref: https://github.com/bitnami/bitnami-docker-postgresql/blob/master/README.md#specifying-initdb-arguments
+  ##
+  initdb:
+    ## @param primary.initdb.scripts Dictionary of initdb scripts
+    ## Specify dictionary of scripts to be run at first boot
+    ## e.g:
+    ## scripts:
+    ##   my_init_script.sh: |
+    ##      #!/bin/sh
+    ##      echo "Do something."
+    ##
+    scripts:
+      mobius-init.sql: |
+        CREATE ROLE mobius LOGIN PASSWORD 'postgres';
+        GRANT  mobius TO postgres;
+        CREATE DATABASE mobiusserver OWNER mobius ENCODING 'UTF8' TEMPLATE template0 LC_COLLATE 'C' LC_CTYPE 'C' CONNECTION LIMIT -1;
+        CREATE DATABASE mobiusview OWNER mobius ENCODING 'UTF8' TEMPLATE template0 LC_COLLATE 'C' LC_CTYPE 'C' CONNECTION LIMIT -1;
+        CREATE DATABASE eventanalytics OWNER mobius ENCODING 'UTF8' TEMPLATE template0 LC_COLLATE 'C' LC_CTYPE 'C' CONNECTION LIMIT -1;
