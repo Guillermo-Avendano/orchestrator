@@ -29,9 +29,7 @@ install_database() {
         replace_tag_in_file $POSTGRES_CONF_FILE "<image_tag>" $POSTGRESQL_VERSION;
         replace_tag_in_file $POSTGRES_CONF_FILE "<database_user>" $POSTGRESQL_USERNAME;
         replace_tag_in_file $POSTGRES_CONF_FILE "<database_password>" $POSTGRESQL_PASSWORD;
-        replace_tag_in_file $POSTGRES_CONF_FILE "<database_name_mobiusview>" $POSTGRESQL_DBNAME_MOBIUSVIEW;
-        replace_tag_in_file $POSTGRES_CONF_FILE "<database_name_mobius>" $POSTGRESQL_DBNAME_MOBIUS;    
-        replace_tag_in_file $POSTGRES_CONF_FILE "<database_name_eventanalytics>" $POSTGRESQL_DBNAME_EVENTANALYTICS;
+        replace_tag_in_file $POSTGRES_CONF_FILE "<database_name>" $POSTGRESQL_DBNAME;
         replace_tag_in_file $POSTGRES_CONF_FILE "<postgres_port>" $POSTGRESQL_PORT;
 
         kubectl apply -f $kube_dir/database/storage/local/$POSTGRES_STORAGE_FILE --namespace $NAMESPACE;
