@@ -1,9 +1,9 @@
-# Mobius 12
+# AEO 4.3.1.x
 
 ## Introduction
 
-- This project includes the installation of k3d, helm, and terraform as infrastructure for installing Mobius 12.
-- bash scripts + terraform + helm for mobius12
+- This project includes the installation of k3d, helm, and terraform as infrastructure for installing aeo 4.3.x.
+- bash scripts + helm for aeo
 
 ## Prerequisites
 
@@ -20,75 +20,55 @@
 - Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
         export DOCKER_PASSWORD=[RCC password encripted base64]
 
-- Check versions for mobius-server. mobius-view, and eventanalytics
-  ./mvcluster.sh imgls
+- Check versions for scheduler, clientmgr, and agent
+  ./cluster.sh imgls
 
 - Review variables in "./env.sh", example:
-      TF_VAR_MOBIUS_VIEW_URL = "mobius12.local.net"
+      AEO_URL = "seo.rocketsoftware.com"
 
    in "./env.sh", and add these values to /etc/hosts c:/windows/system32/drivers/etc/hosts
   with the IP where the custer will run, example:
 
-     192.168.0.5     mobius12.local.net pgadmin.local.net elactic.local.net
+     192.168.0.5     aeo.rocketsoftware.com
 
 ## Installation sequence
 
 1; Install k3d, helm, kubectl and terraform
 
-- ./mvcluster.sh install
+- ./cluster.sh install
 
 2; set environment
 
 - source env.sh
 
-3; Create the cluster for mobius, and pull images from registry.rocketsoftware.com
+3; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
 
-- ./mvcluster.sh create
+- ./cluster.sh create
 
-4; Initilize Terraform providers
+4; Install scheduler, clientmgr, and agent
 
-- cd ../mobius
-- terraform init
-
-5; Install shared namespace with: postgres, kafka, elasticsearch
-
-- cd shared
-- ./install.sh
-
-6; Install mobius-server and mobius-view
-
-- cd mobius
-- terraform init
+- cd aeo
 - ./install.sh
 
 ## Summary of commands
 
 |-------------------------|-----------------------------------------------------------------|
-| mvcluster.sh on         | start mobius cluster
-| mvcluster.sh off        | stop mobius cluster
-| mvcluster.sh imgls      | list images from registry.rocketsoftware.com
-| mvcluster.sh imgpull    | pull images from registry.rocketsoftware.com
-| mvcluster.sh list       | list clusters
-| mvcluster.sh create     | create mobius cluster
-| mvcluster.sh remove     | remove mobius cluster
-| mvcluster.sh debug      | generate outputs for get/describe of each kubernetes resources
-| mvcluster.sh install    | install k3d, kubectl, helm, and terraform
+| cluster.sh on         | start aeo cluster
+| cluster.sh off        | stop aeo cluster
+| cluster.sh imgls      | list images from registry.rocketsoftware.com
+| cluster.sh imgpull    | pull images from registry.rocketsoftware.com
+| cluster.sh list       | list clusters
+| cluster.sh create     | create aeo cluster
+| cluster.sh remove     | remove aeo cluster
+| cluster.sh debug      | generate outputs for get/describe of each kubernetes resources
+| cluster.sh install    | install k3d, kubectl, helm, and terraform
 
-### Install of shared componnets
+### Install of aeo componnets
 
-- cd shared
-- ./install.sh
-### Remove shared componnets with the namespece associated. The cluster and images are maintained
-
-- cd shared
-- ./remove.sh
-
-### Install of mobius componnets
-
-- cd mobius
+- cd aeo
 - ./install.sh
 
-### Remove mobius componnets with the namespece associated. The cluster and images are maintained
+### Remove aeo componnets with the namespece associated. The cluster and images are maintained
 
-- cd mobius
+- cd aeo
 - ./remove.sh
