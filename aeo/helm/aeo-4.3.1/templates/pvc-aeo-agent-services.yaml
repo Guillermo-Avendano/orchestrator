@@ -5,7 +5,7 @@ metadata:
   name: pvc-aeo-agent-services
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   #storageClassName: {{ .Values.storageClassName }}
   resources:
     requests:

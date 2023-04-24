@@ -8,16 +8,16 @@ Selector:                 app=aeo-clientmgr
 Type:                     NodePort
 IP Family Policy:         SingleStack
 IP Families:              IPv4
-IP:                       10.43.71.87
-IPs:                      10.43.71.87
+IP:                       10.43.99.34
+IPs:                      10.43.99.34
 Port:                     aeo-web  7980/TCP
 TargetPort:               7980/TCP
-NodePort:                 aeo-web  30907/TCP
-Endpoints:                10.42.2.16:7980
+NodePort:                 aeo-web  32245/TCP
+Endpoints:                10.42.2.22:7980
 Port:                     7911  7911/TCP
 TargetPort:               7911/TCP
-NodePort:                 7911  30711/TCP
-Endpoints:                10.42.2.16:7911
+NodePort:                 7911  31192/TCP
+Endpoints:                10.42.2.22:7911
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>

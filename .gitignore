@@ -1,5 +1,8 @@
 *.zip
 *.tar
-*.log
-*.tgz
+.terraform/
 *.bak
+*.tfstate
+*.backup
+*.hcl
+logs/

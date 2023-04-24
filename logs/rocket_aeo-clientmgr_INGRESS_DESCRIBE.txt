@@ -6,11 +6,11 @@ Rules:
   Host                    Path  Backends
   ----                    ----  --------
   aeo.rocketsoftware.com  
-                          /   aeo-clientmgr:7980 (10.42.2.16:7980)
+                          /   aeo-clientmgr:7980 (10.42.2.22:7980)
 Annotations:              meta.helm.sh/release-name: aeo-rocket
                           meta.helm.sh/release-namespace: rocket
                           nginx.ingress.kubernetes.io/app-root: /aeo
 Events:
-  Type    Reason  Age                From                      Message
-  ----    ------  ----               ----                      -------
-  Normal  Sync    58s (x2 over 85s)  nginx-ingress-controller  Scheduled for sync
+  Type    Reason  Age                    From                      Message
+  ----    ------  ----                   ----                      -------
+  Normal  Sync    7m19s (x2 over 7m56s)  nginx-ingress-controller  Scheduled for sync

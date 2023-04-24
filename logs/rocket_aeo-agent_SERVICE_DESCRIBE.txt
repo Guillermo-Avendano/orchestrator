@@ -8,12 +8,12 @@ Selector:                 app=aeo-agent
 Type:                     NodePort
 IP Family Policy:         SingleStack
 IP Families:              IPv4
-IP:                       10.43.38.121
-IPs:                      10.43.38.121
+IP:                       10.43.152.96
+IPs:                      10.43.152.96
 Port:                     7913  7913/TCP
 TargetPort:               7913/TCP
-NodePort:                 7913  30265/TCP
-Endpoints:                <none>
+NodePort:                 7913  32549/TCP
+Endpoints:                10.42.2.23:7913
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>

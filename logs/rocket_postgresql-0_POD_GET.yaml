@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: "2023-04-24T18:26:10Z"
+  creationTimestamp: "2023-04-24T18:35:00Z"
   generateName: postgresql-
   labels:
     app.kubernetes.io/component: primary
@@ -19,9 +19,9 @@ metadata:
     controller: true
     kind: StatefulSet
     name: postgresql
-    uid: 5e22587c-d24e-4409-8f7c-b615f94de3ea
-  resourceVersion: "2813"
-  uid: 5c504b1a-0e92-4c3d-af7f-39c1ed21e31b
+    uid: 151d59f3-0649-4612-907c-e7fa135bd8cd
+  resourceVersion: "3512"
+  uid: 93ac0eb8-3424-4e28-9169-1cd4a5c6170e
 spec:
   affinity:
     podAntiAffinity:
@@ -130,7 +130,7 @@ spec:
     - mountPath: /bitnami/postgresql
       name: data
     - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      name: kube-api-access-swgj4
+      name: kube-api-access-kjxnv
       readOnly: true
   dnsPolicy: ClusterFirst
   enableServiceLinks: true
@@ -166,7 +166,7 @@ spec:
   - name: data
     persistentVolumeClaim:
       claimName: postgresql-pv-claim
-  - name: kube-api-access-swgj4
+  - name: kube-api-access-kjxnv
     projected:
       defaultMode: 420
       sources:
@@ -187,23 +187,23 @@ spec:
 status:
   conditions:
   - lastProbeTime: null
-    lastTransitionTime: "2023-04-24T18:26:14Z"
+    lastTransitionTime: "2023-04-24T18:35:05Z"
     status: "True"
     type: Initialized
   - lastProbeTime: null
-    lastTransitionTime: "2023-04-24T18:26:24Z"
+    lastTransitionTime: "2023-04-24T18:35:15Z"
     status: "True"
     type: Ready
   - lastProbeTime: null
-    lastTransitionTime: "2023-04-24T18:26:24Z"
+    lastTransitionTime: "2023-04-24T18:35:15Z"
     status: "True"
     type: ContainersReady
   - lastProbeTime: null
-    lastTransitionTime: "2023-04-24T18:26:14Z"
+    lastTransitionTime: "2023-04-24T18:35:05Z"
     status: "True"
     type: PodScheduled
   containerStatuses:
-  - containerID: containerd://5bcd5ecb51d43eb63b82c2aa0b0ed9b57ab803d38965c16035f1ec0999cbdc23
+  - containerID: containerd://33802dba81f8b7a5929726bfc87ed6b6364c1d867517577c6422e398d2c4c20d
     image: docker.io/bitnami/postgresql:14.5.0
     imageID: docker.io/bitnami/postgresql@sha256:2092a1b0bed244fbfacea836da72a84bfa47a1e7b4f2b4a82dda28dc3065d6de
     lastState: {}
@@ -213,11 +213,11 @@ status:
     started: true
     state:
       running:
-        startedAt: "2023-04-24T18:26:14Z"
+        startedAt: "2023-04-24T18:35:05Z"
   hostIP: 172.19.0.3
   phase: Running
-  podIP: 10.42.0.11
+  podIP: 10.42.0.14
   podIPs:
-  - ip: 10.42.0.11
+  - ip: 10.42.0.14
   qosClass: Burstable
-  startTime: "2023-04-24T18:26:14Z"
+  startTime: "2023-04-24T18:35:05Z"

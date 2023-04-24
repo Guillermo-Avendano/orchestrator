@@ -2,7 +2,7 @@ Name:         postgresql-0
 Namespace:    rocket
 Priority:     0
 Node:         k3d-rocket-server-0/172.19.0.3
-Start Time:   Mon, 24 Apr 2023 15:26:14 -0300
+Start Time:   Mon, 24 Apr 2023 15:35:05 -0300
 Labels:       app.kubernetes.io/component=primary
               app.kubernetes.io/instance=postgresql
               app.kubernetes.io/managed-by=Helm
@@ -12,19 +12,19 @@ Labels:       app.kubernetes.io/component=primary
               statefulset.kubernetes.io/pod-name=postgresql-0
 Annotations:  <none>
 Status:       Running
-IP:           10.42.0.11
+IP:           10.42.0.14
 IPs:
-  IP:           10.42.0.11
+  IP:           10.42.0.14
 Controlled By:  StatefulSet/postgresql
 Containers:
   postgresql:
-    Container ID:   containerd://5bcd5ecb51d43eb63b82c2aa0b0ed9b57ab803d38965c16035f1ec0999cbdc23
+    Container ID:   containerd://33802dba81f8b7a5929726bfc87ed6b6364c1d867517577c6422e398d2c4c20d
     Image:          docker.io/bitnami/postgresql:14.5.0
     Image ID:       docker.io/bitnami/postgresql@sha256:2092a1b0bed244fbfacea836da72a84bfa47a1e7b4f2b4a82dda28dc3065d6de
     Port:           5432/TCP
     Host Port:      0/TCP
     State:          Running
-      Started:      Mon, 24 Apr 2023 15:26:14 -0300
+      Started:      Mon, 24 Apr 2023 15:35:05 -0300
     Ready:          True
     Restart Count:  0
     Requests:
@@ -58,7 +58,7 @@ Containers:
       /bitnami/postgresql from data (rw)
       /dev/shm from dshm (rw)
       /docker-entrypoint-initdb.d/ from custom-init-scripts (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-swgj4 (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kjxnv (ro)
 Conditions:
   Type              Status
   Initialized       True 
@@ -78,7 +78,7 @@ Volumes:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
     ClaimName:  postgresql-pv-claim
     ReadOnly:   false
-  kube-api-access-swgj4:
+  kube-api-access-kjxnv:
     Type:                    Projected (a volume that contains injected data from multiple sources)
     TokenExpirationSeconds:  3607
     ConfigMapName:           kube-root-ca.crt
@@ -89,9 +89,9 @@ Node-Selectors:              <none>
 Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type    Reason     Age   From               Message
-  ----    ------     ----  ----               -------
-  Normal  Scheduled  86s   default-scheduler  Successfully assigned rocket/postgresql-0 to k3d-rocket-server-0
-  Normal  Pulled     87s   kubelet            Container image "docker.io/bitnami/postgresql:14.5.0" already present on machine
-  Normal  Created    87s   kubelet            Created container postgresql
-  Normal  Started    87s   kubelet            Started container postgresql
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  7m57s  default-scheduler  Successfully assigned rocket/postgresql-0 to k3d-rocket-server-0
+  Normal  Pulled     7m57s  kubelet            Container image "docker.io/bitnami/postgresql:14.5.0" already present on machine
+  Normal  Created    7m57s  kubelet            Created container postgresql
+  Normal  Started    7m57s  kubelet            Started container postgresql
