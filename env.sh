@@ -18,7 +18,7 @@ DOCKER_USER="gavendano@rs.com"                     # cluster/local_registry.sh
 DOCKER_PASS=`echo $DOCKER_PASSWORD | base64 -d`    # $HOME/.profile -> DOCKER_PASSWORD encoded base64
 
 KUBE_SOURCE_REGISTRY="registry.rocketsoftware.com"  # cluster/local_registry.sh 
-KUBE_LOCALREGISTRY_NAME="rocket.localhost"          # cluster/local_registry.sh
+KUBE_LOCALREGISTRY_NAME="localhost"                 # cluster/local_registry.sh
 KUBE_LOCALREGISTRY_HOST="localhost"                 # cluster/local_registry.sh 
 KUBE_LOCALREGISTRY_PORT="5000"                      # cluster/local_registry.sh 
 NGINX_EXTERNAL_TLS_PORT=443
@@ -27,9 +27,9 @@ NGINX_EXTERNAL_TLS_PORT=443
 # MOBIUS IMAGES
 ################################################################################
 IMAGE_SCHEDULER_NAME=aeo/scheduler
-IMAGE_SCHEDULER_VERSION=4.3.1.57
+IMAGE_SCHEDULER_VERSION=4.3.1.61
 IMAGE_CLIENTMGR_NAME=aeo/clientmgr
-IMAGE_CLIENTMGR_VERSION=4.3.1.57
+IMAGE_CLIENTMGR_VERSION=4.3.1.61
 IMAGE_AGENT_NAME=aeo/agent
 IMAGE_AGENT_VERSION=4.3.1.58
 
@@ -43,6 +43,7 @@ DATABASE_PROVIDER=postgresql
 POSTGRESQL_VERSION=14.5.0
 POSTGRESQL_USERNAME=aeo
 POSTGRESQL_PASSWORD=aeo
+POSTGRESQL_PASSENCR=3X6ApGn/D3cgkTxc730BGhvV6C6A6YPfGare9QjWgdT5rkI9wCWWFRvfYk1f5PXqN
 POSTGRESQL_DBNAME=aeo
 POSTGRESQL_HOST=postgresql.shared
 POSTGRESQL_PORT=5432
@@ -50,7 +51,22 @@ export POSTGRES_VALUES_TEMPLATE=postgres-aeo.yaml
 
 #########################################
 
-AEO_URL=aeo.rocketsoftware.com
+
+
+#########################################
+## Terraform
+#########################################
+export TF_VAR_NAMESPACE=$NAMESPACE
+export TF_VAR_NAMESPACE_SHARED="shared"
+export TF_VAR_AEO_URL="aeo.rocketsoftware.com"
+
+export TF_VAR_POSTGRESQL_HOST=$POSTGRESQL_HOST
+export TF_VAR_POSTGRESQL_PORT=$POSTGRESQL_PORT
+export TF_VAR_POSTGRESQL_USERNAME=$POSTGRESQL_USERNAME
+export TF_VAR_POSTGRESQL_PASSWORD=$POSTGRESQL_PASSWORD
+export TF_VAR_POSTGRESQL_PASSENCR=$POSTGRESQL_PASSENCR
+export TF_VAR_POSTGRESQL_DBNAME=$POSTGRESQL_DBNAME
+
 
 ########################################################################
 # In processing

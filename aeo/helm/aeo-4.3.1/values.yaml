@@ -8,8 +8,6 @@ scheduler:
   enabled: true
   name: aeo-scheduler
   nodePort:
-  dbdate: 2022.08.22
-  dbtm: BASE64MTFGRkZGRkZDMURGRjBGRUZDMUZGOEM4RDU3RTBERDRGNEZGRkZGRkU3REZGRkZGRkVDRUZERkMzNUZGMUUwMkRkYkEgICtuYiAqWVRANTdYWU1UVicxW3x6O3gmcyhYbE9bVFRPeFlZMmsoPFk9Wy1he0MjVywva1BQQUQtUz1NbnwsSi9oZ1Qmdj93Z0phYiZKI1QoTE5UZFQ8UCM3LTdUNVBVLXdifl1CZUJdZGZ8QmVBJmc5Tk8jKydEeTJpJj07KyxZdmQ8JiZQQnZbWSdCKnlOPD1semQrd2JQTWhON3dDL3w5V0otKkF3QDlpek09LCxreTc/c1RNTFYqeSh7ekR5XDE7eig/Vk5oXSBSKlxmd3NzeFA3fkJ6VFhwNDYxbkR3UjtXKl5eeSFcWnZzcUIrWWRdKW17VngvZCorZyFpMH15YSlmWmlZPSohNmdmcXgpIXc5Kk0ofSNcMXdNd215UyxTL2wySjlNfF08OndWWVpoTGZDKFddQydWVjxNVTxkdzdlY3BMZ3BhblV9cTNOOnE6Zmg2dz0oc2BcLVZRVUZtZDFZQ2BWOlV4L04pPFZWdUN3NyFpV0pNMWVZUj1CK1ctQygxKT99PEp4MSNwLC02blpBQWMxKjksIT0hTmF7UHtGJk5XP1BaSk0nUENcTDdBM3NnfXdORi08LE11KlxxLy8vNnBlOmV7Q3cyOicmUzd2c25TK3x8cW1BPzBGZHNE
 
 clientmgr:
   replicas: 1
@@ -17,7 +15,6 @@ clientmgr:
   name: aeo-clientmgr
 
 database:
-  image: postgres:12-alpine
   driver: "org.postgresql.Driver"   
   type: "POSTGRESQL"   
   url: "jdbc:postgresql://aeo-postgres:5432/aeo"

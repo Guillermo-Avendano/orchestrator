@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: postgresql
+    meta.helm.sh/release-namespace: shared
+  creationTimestamp: "2023-04-23T15:51:39Z"
+  labels:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: postgresql
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-11.8.2
+  name: postgresql
+  namespace: shared
+  resourceVersion: "935"
+  uid: 507396d1-1835-43b8-b48c-051f36211fd9
+spec:
+  clusterIP: 10.43.115.123
+  clusterIPs:
+  - 10.43.115.123
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: tcp-postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: tcp-postgresql
+  selector:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: postgresql
+    app.kubernetes.io/name: postgresql
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
