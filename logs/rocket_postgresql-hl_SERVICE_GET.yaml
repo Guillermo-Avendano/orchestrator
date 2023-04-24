@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: postgresql
+    meta.helm.sh/release-namespace: rocket
+  creationTimestamp: "2023-04-24T18:26:10Z"
+  labels:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: postgresql
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-11.8.2
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+  name: postgresql-hl
+  namespace: rocket
+  resourceVersion: "2614"
+  uid: a72d1c4f-d9e4-434b-8db0-8fdd0b09e42b
+spec:
+  clusterIP: None
+  clusterIPs:
+  - None
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: tcp-postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: tcp-postgresql
+  publishNotReadyAddresses: true
+  selector:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: postgresql
+    app.kubernetes.io/name: postgresql
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

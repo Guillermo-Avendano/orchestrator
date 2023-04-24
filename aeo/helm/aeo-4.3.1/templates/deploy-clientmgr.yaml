@@ -14,10 +14,6 @@ spec:
         app:  {{ .Values.clientmgr.name }} 
     spec:
       hostname:  {{ .Values.clientmgr.name }}
-      initContainers:
-      - name: aeo-checkdb
-        image: {{ .Values.scheduler.database.image }}
-        command: ['sh', '-c', 'echo "{{ .Values.scheduler.database.server }}:5432:aeo:aeo:aeo" > ~/.pgpass; chmod 0600 ~/.pgpass ; until psql -U {{ .Values.scheduler.database.user }} -d {{ .Values.scheduler.database.name }} -h {{ .Values.scheduler.database.server }} -c "SELECT count (*) FROM services" ; do echo "database do not exist!" ; sleep 2 ; done;']        
       containers:
       - name:  {{ .Values.clientmgr.name }} 
         image: {{ .Values.clientmgr.image }}

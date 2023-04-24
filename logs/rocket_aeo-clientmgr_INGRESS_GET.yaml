@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    meta.helm.sh/release-name: aeo-rocket
+    meta.helm.sh/release-namespace: rocket
+    nginx.ingress.kubernetes.io/app-root: /aeo
+  creationTimestamp: "2023-04-24T18:26:17Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: aeo-clientmgr
+  namespace: rocket
+  resourceVersion: "2832"
+  uid: 06409254-8ae4-47c6-8f32-f68d9d83b5d2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: aeo.rocketsoftware.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: aeo-clientmgr
+            port:
+              number: 7980
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.19.0.3
+    - ip: 172.19.0.4
+    - ip: 172.19.0.5

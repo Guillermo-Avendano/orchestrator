@@ -1,0 +1,19 @@
+Name:                     aeo-agent
+Namespace:                rocket
+Labels:                   app=aeo-agent
+                          app.kubernetes.io/managed-by=Helm
+Annotations:              meta.helm.sh/release-name: aeo-rocket
+                          meta.helm.sh/release-namespace: rocket
+Selector:                 app=aeo-agent
+Type:                     NodePort
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.43.38.121
+IPs:                      10.43.38.121
+Port:                     7913  7913/TCP
+TargetPort:               7913/TCP
+NodePort:                 7913  30265/TCP
+Endpoints:                <none>
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>

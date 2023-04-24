@@ -1,18 +1,24 @@
 
+
 #!/bin/bash
+#abort in case of cmd failure
+set -Eeuo pipefail
 
-source "../env.sh"
-source "$kube_dir/common/common.sh"
+source ../env.sh
+source ../database/database.sh
+source "./helm/aeo.sh"
 
-DBFILE_TEMPLATE=database/template/aeo_4.3.1.60.sql
+#install database
+highlight_message "Deploying database services"
 
-DBFILE=database/aeo_4.3.1.60.sql
+install_database;
 
-cp $DBFILE_TEMPLATE $DBFILE
+info_progress_header "Waiting for database services to be ready ...";
+wait_for_database_ready;
+info_message "The database services are ready now.";
 
-replace_tag_in_file $DBFILE "<database_user>" $POSTGRESQL_USERNAME;
-replace_tag_in_file $DBFILE "<database_password>" $POSTGRESQL_PASSWORD;
-replace_tag_in_file $DBFILE "<database_name>" $POSTGRESQL_DBNAME;
-replace_tag_in_file $DBFILE "<postgres_port>" $POSTGRESQL_PORT;
+highlight_message "Deploying Orchestrator services"
+install_aeo;
 
-terraform apply 
+
+

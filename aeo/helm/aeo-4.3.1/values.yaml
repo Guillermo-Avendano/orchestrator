@@ -4,35 +4,35 @@
 
 scheduler:
   replicas: 1
-  image: docker.io/library/aeo-scheduler:4.3.1.59
+  image: localhost:5000/aeo/scheduler:4.3.1.61
   enabled: true
   name: aeo-scheduler
   nodePort:
 
 clientmgr:
   replicas: 1
-  image: docker.io/library/aeo-clientmgr:4.3.1.59
+  image: localhost:5000/aeo/clientmgr:4.3.1.61
   name: aeo-clientmgr
 
 database:
   driver: "org.postgresql.Driver"   
   type: "POSTGRESQL"   
-  url: "jdbc:postgresql://aeo-postgres:5432/aeo"
-  name: "aeo"
-  server: "aeo-postgres"
-  user: "aeo"
-  password: "3Zwzef7ZkyYCmSu5wq6YdPL446Y6Mvt7U8rq4NhLrt7rVX5Q3k6zxpNKHsifmlDFp"
+  url: jdbc:postgresql://postgresql:5432/aeo
+  name: aeo
+  server: postgresql
+  user: aeo
+  password: 3X6ApGn/D3cgkTxc730BGhvV6C6A6YPfGare9QjWgdT5rkI9wCWWFRvfYk1f5PXqN
 
 agent:
   enabled: true
-  image: docker.io/library/aeo-agent:4.3.1.58
+  image: localhost:5000/aeo/agent:4.3.1.58
   name: aeo-agent
     
 
 ingress:
   enabled: true
-  className: "public"
-  host: aeo.rocket-sandbox.local.net
+  className: "nginx"
+  host: aeo.rocketsoftware.com
   #tls:
   #  secretName: "tls-aeo"
     # aeo.rocket-sandbox.local.net crt, and key certificate files in base64

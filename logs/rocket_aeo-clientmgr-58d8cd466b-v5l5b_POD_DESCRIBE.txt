@@ -1,0 +1,64 @@
+Name:         aeo-clientmgr-58d8cd466b-v5l5b
+Namespace:    rocket
+Priority:     0
+Node:         k3d-rocket-agent-1/172.19.0.5
+Start Time:   Mon, 24 Apr 2023 15:26:23 -0300
+Labels:       app=aeo-clientmgr
+              pod-template-hash=58d8cd466b
+Annotations:  <none>
+Status:       Running
+IP:           10.42.2.16
+IPs:
+  IP:           10.42.2.16
+Controlled By:  ReplicaSet/aeo-clientmgr-58d8cd466b
+Containers:
+  aeo-clientmgr:
+    Container ID:   containerd://bb45c4113e5ef1927eb895f60dc8e5c0eb6eaa30efbb4458a697dfb5ed504f48
+    Image:          localhost:5000/aeo/clientmgr:4.3.1.61
+    Image ID:       localhost:5000/aeo/clientmgr@sha256:7eec66c3db471335531138e2708db3bffe6b1bfdeff3e4ebf79a081cc2b59b0e
+    Port:           7980/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 24 Apr 2023 15:26:23 -0300
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      DB_DRIVER:    org.postgresql.Driver
+      DB_TYPE:      POSTGRESQL
+      DB_URL:       jdbc:postgresql://postgresql:5432/aeo
+      DB_NAME:      aeo
+      DB_SERVER:    postgresql
+      DB_USER:      aeo
+      DB_PASSWORD:  3X6ApGn/D3cgkTxc730BGhvV6C6A6YPfGare9QjWgdT5rkI9wCWWFRvfYk1f5PXqN
+      PORT:         7980
+    Mounts:
+      /opt/aeo/data from pvc-aeo-clientmgr (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-qzhmw (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  pvc-aeo-clientmgr:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  pvc-aeo-clientmgr
+    ReadOnly:   false
+  kube-api-access-qzhmw:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  77s   default-scheduler  Successfully assigned rocket/aeo-clientmgr-58d8cd466b-v5l5b to k3d-rocket-agent-1
+  Normal  Pulled     78s   kubelet            Container image "localhost:5000/aeo/clientmgr:4.3.1.61" already present on machine
+  Normal  Created    78s   kubelet            Created container aeo-clientmgr
+  Normal  Started    77s   kubelet            Started container aeo-clientmgr

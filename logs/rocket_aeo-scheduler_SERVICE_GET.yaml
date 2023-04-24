@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: aeo-rocket
+    meta.helm.sh/release-namespace: rocket
+  creationTimestamp: "2023-04-24T18:26:17Z"
+  labels:
+    app: aeo-scheduler
+    app.kubernetes.io/managed-by: Helm
+  name: aeo-scheduler
+  namespace: rocket
+  resourceVersion: "2671"
+  uid: 9451c37a-74af-4fc8-9561-dc2695d18cb7
+spec:
+  clusterIP: 10.43.218.124
+  clusterIPs:
+  - 10.43.218.124
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: "7910"
+    port: 7910
+    protocol: TCP
+    targetPort: 7910
+  selector:
+    app: aeo-scheduler
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

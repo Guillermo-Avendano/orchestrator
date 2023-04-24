@@ -1,0 +1,52 @@
+[38;5;6mpostgresql [38;5;5m18:26:14.96 [0m
+[38;5;6mpostgresql [38;5;5m18:26:14.96 [0m[1mWelcome to the Bitnami postgresql container[0m
+[38;5;6mpostgresql [38;5;5m18:26:14.97 [0mSubscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
+[38;5;6mpostgresql [38;5;5m18:26:14.97 [0mSubmit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
+[38;5;6mpostgresql [38;5;5m18:26:14.97 [0m
+[38;5;6mpostgresql [38;5;5m18:26:14.99 [0m[38;5;2mINFO [0m ==> ** Starting PostgreSQL setup **
+[38;5;6mpostgresql [38;5;5m18:26:15.01 [0m[38;5;2mINFO [0m ==> Validating settings in POSTGRESQL_* env vars..
+[38;5;6mpostgresql [38;5;5m18:26:15.01 [0m[38;5;2mINFO [0m ==> Loading custom pre-init scripts...
+[38;5;6mpostgresql [38;5;5m18:26:15.02 [0m[38;5;2mINFO [0m ==> Initializing PostgreSQL database...
+[38;5;6mpostgresql [38;5;5m18:26:15.04 [0m[38;5;2mINFO [0m ==> pg_hba.conf file not detected. Generating it...
+[38;5;6mpostgresql [38;5;5m18:26:15.04 [0m[38;5;2mINFO [0m ==> Generating local authentication configuration
+[38;5;6mpostgresql [38;5;5m18:26:15.74 [0m[38;5;2mINFO [0m ==> Starting PostgreSQL in background...
+[38;5;6mpostgresql [38;5;5m18:26:15.91 [0m[38;5;2mINFO [0m ==> Changing password of postgres
+[38;5;6mpostgresql [38;5;5m18:26:15.96 [0m[38;5;2mINFO [0m ==> Creating user aeo
+[38;5;6mpostgresql [38;5;5m18:26:15.99 [0m[38;5;2mINFO [0m ==> Granting access to "aeo" to the database "postgres"
+[38;5;6mpostgresql [38;5;5m18:26:16.03 [0m[38;5;2mINFO [0m ==> Setting ownership for the 'public' schema database "postgres" to "aeo"
+[38;5;6mpostgresql [38;5;5m18:26:16.10 [0m[38;5;2mINFO [0m ==> Configuring replication parameters
+[38;5;6mpostgresql [38;5;5m18:26:16.20 [0m[38;5;2mINFO [0m ==> Configuring synchronous_replication
+[38;5;6mpostgresql [38;5;5m18:26:16.21 [0m[38;5;2mINFO [0m ==> Configuring fsync
+[38;5;6mpostgresql [38;5;5m18:26:16.29 [0m[38;5;2mINFO [0m ==> Loading custom scripts...
+[38;5;6mpostgresql [38;5;5m18:26:16.30 [0m[38;5;2mINFO [0m ==> Loading user's custom files from /docker-entrypoint-initdb.d ...
+[38;5;6mpostgresql [38;5;5m18:26:16.30 [0m[38;5;2mINFO [0m ==> Starting PostgreSQL in background...
+[38;5;6mpostgresql [38;5;5m18:26:17.15 [0m[38;5;2mINFO [0m ==> Enabling remote connections
+[38;5;6mpostgresql [38;5;5m18:26:17.16 [0m[38;5;2mINFO [0m ==> Stopping PostgreSQL...
+waiting for server to shut down.... done
+server stopped
+[38;5;6mpostgresql [38;5;5m18:26:17.27 [0m[38;5;2mINFO [0m ==> ** PostgreSQL setup finished! **
+
+[38;5;6mpostgresql [38;5;5m18:26:17.30 [0m[38;5;2mINFO [0m ==> ** Starting PostgreSQL **
+2023-04-24 18:26:17.328 GMT [1] LOG:  pgaudit extension initialized
+2023-04-24 18:26:17.338 GMT [1] LOG:  starting PostgreSQL 14.5 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+2023-04-24 18:26:17.338 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2023-04-24 18:26:17.338 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2023-04-24 18:26:17.347 GMT [1] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-04-24 18:26:17.362 GMT [164] LOG:  database system was shut down at 2023-04-24 18:26:17 GMT
+2023-04-24 18:26:17.382 GMT [1] LOG:  database system is ready to accept connections
+2023-04-24 18:26:25.676 GMT [178] ERROR:  relation "definition_history" does not exist
+2023-04-24 18:26:25.676 GMT [178] STATEMENT:  create index ix_definition_history_1 on definition_history(definition_type, definition_id, created)
+2023-04-24 18:26:25.679 GMT [178] ERROR:  relation "definition_history" does not exist
+2023-04-24 18:26:25.679 GMT [178] STATEMENT:  create index ix_definition_history_2 on definition_history(created)
+2023-04-24 18:26:25.681 GMT [178] ERROR:  relation "definition_history" does not exist
+2023-04-24 18:26:25.681 GMT [178] STATEMENT:  create index ix_definition_history_3 on definition_history(package_uid)
+2023-04-24 18:26:25.714 GMT [178] ERROR:  relation "messages" does not exist
+2023-04-24 18:26:25.714 GMT [178] STATEMENT:  create index ix_messages_1 on messages (status, server_uid)
+2023-04-24 18:26:25.717 GMT [178] ERROR:  relation "messages" does not exist
+2023-04-24 18:26:25.717 GMT [178] STATEMENT:  create index ix_messages_2 on messages (status, responsibility)
+2023-04-24 18:26:25.719 GMT [178] ERROR:  relation "messages" does not exist
+2023-04-24 18:26:25.719 GMT [178] STATEMENT:  create index ix_messages_3 on messages (changed)
+2023-04-24 18:26:25.974 GMT [180] ERROR:  relation "messages" does not exist at character 15
+2023-04-24 18:26:25.974 GMT [180] STATEMENT:  select * from messages where id=0
+2023-04-24 18:26:26.564 GMT [181] ERROR:  relation "definition_history" does not exist at character 15
+2023-04-24 18:26:26.564 GMT [181] STATEMENT:  select * from definition_history where id=0
