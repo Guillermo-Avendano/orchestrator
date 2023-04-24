@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 
 source "$kube_dir/cluster/local_registry.sh"
 source "$kube_dir/common/common.sh"
@@ -17,12 +18,9 @@ create_cluster(){
 
     KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:5000 --registry-config $kube_dir/cluster/registries.yaml"
 
-    KUBE_CLUSTER_REGISTRY="--registry-use $KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT"
-
     k3d cluster create $KUBE_CLUSTER_NAME -p "80:80@loadbalancer" -p "$NGINX_EXTERNAL_TLS_PORT:443@loadbalancer" --agents 2 --k3s-arg "--disable=traefik@server:0" $KUBE_CLUSTER_REGISTRY
     
-    #k3d kubeconfig get $KUBE_CLUSTER_NAME > $kube_dir/cluster/cluster-config.yaml
-
+   
     kubectl config use-context k3d-$KUBE_CLUSTER_NAME
     
     # Getting Images
@@ -32,16 +30,6 @@ create_cluster(){
     # Install ingress
     kubectl create namespace ingress-nginx
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.3/deploy/static/provider/cloud/deploy.yaml -n ingress-nginx
-
-
-    until ! [ "$(kubectl get pods --namespace ingress-nginx | grep "ingress-nginx-controller" | grep "Running")" ]
-    do
-        info_progress "...";
-        sleep 3;
-    done
-    info_message "cluster started successfully";
-    #
-
 }
 
 remove_cluster() {
@@ -53,8 +41,6 @@ remove_cluster() {
         echo "Deleting existing registry $registry_name"
         k3d registry delete $registry_name
     fi  
-    k3d registry delete $KUBE_LOCALREGISTRY_NAME    
-    docker network rm k3d-$KUBE_CLUSTER_NAME
 }
 
 start_cluster() {
@@ -114,7 +100,7 @@ debug_cluster(){
        rm $log_dir/*.*
     fi
 
-    namespace_list=(${NAMESPACE})
+    namespace_list=(${TF_VAR_NAMESPACE} ${TF_VAR_NAMESPACE_SHARED})
     # namespace_list=( ${TF_VAR_NAMESPACE} )
 
     for namespace in "${namespace_list[@]}"

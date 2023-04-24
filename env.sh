@@ -11,6 +11,7 @@ kube_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ################################################################################
 KUBE_CLUSTER_NAME="rocket"                               # cluster/cluster.sh
 NAMESPACE=rocket
+PRODUCT="Enterprise Orchestrator"
 
 export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml    # cluster/cluster.sh
 
