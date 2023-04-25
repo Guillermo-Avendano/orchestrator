@@ -6,9 +6,9 @@ source "$kube_dir/common/common.sh"
 
 gen_registry_yaml(){
   echo  "mirrors:" > $kube_dir/cluster/registries.yaml
-  echo  "  "$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT":"  >> $kube_dir/cluster/registries.yaml
-  echo  "     endpoint:"        >> $kube_dir/cluster/registries.yaml
-  echo  "       - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registries.yaml
+  echo  "  \"$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT\":"  >> $kube_dir/cluster/registries.yaml
+  echo  "    endpoint:"        >> $kube_dir/cluster/registries.yaml
+  echo  "      - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registries.yaml
 }
 
 create_cluster(){
