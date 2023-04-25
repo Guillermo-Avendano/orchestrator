@@ -4,6 +4,13 @@
 source "$kube_dir/cluster/local_registry.sh"
 source "$kube_dir/common/common.sh"
 
+gen_registry_yaml(){
+  echo  "mirrors:" > $kube_dir/cluster/registries.yaml
+  echo  "  "$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT":"  >> $kube_dir/cluster/registries.yaml
+  echo  "     endpoint:"        >> $kube_dir/cluster/registries.yaml
+  echo  "       - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registries.yaml
+}
+
 create_cluster(){
     info_message "Creating registry $KUBE_LOCALREGISTRY_NAME"
 
@@ -13,23 +20,57 @@ create_cluster(){
         k3d registry delete $registry_name
     fi   
     k3d registry create $KUBE_LOCALREGISTRY_NAME --port 0.0.0.0:${KUBE_LOCALREGISTRY_PORT}
-
+    
+    gen_registry_yaml;
+    
     info_message "Creating $KUBE_CLUSTER_NAME cluster..."
 
-    KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:5000 --registry-config $kube_dir/cluster/registries.yaml"
+    KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT --registry-config $kube_dir/cluster/registries.yaml"
 
     k3d cluster create $KUBE_CLUSTER_NAME -p "80:80@loadbalancer" -p "$NGINX_EXTERNAL_TLS_PORT:443@loadbalancer" --agents 2 --k3s-arg "--disable=traefik@server:0" $KUBE_CLUSTER_REGISTRY
     
-   
     kubectl config use-context k3d-$KUBE_CLUSTER_NAME
     
     # Getting Images
     # "$kube_dir/cluster/local_registry.sh"
-    push_images_to_local_registry;
+    if [[ "$KUBE_IMAGE_PULL" == "YES" ]]; then
+        push_images_to_local_registry;
+    fi
+    
 
     # Install ingress
     kubectl create namespace ingress-nginx
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.3/deploy/static/provider/cloud/deploy.yaml -n ingress-nginx
+
+    info_progress_header "Verifying $KUBE_CLUSTER_NAME cluster..."
+
+    POD_NAMES=("ingress-nginx-controller")
+    # Define la cantidad de veces que se verificarán los pods
+    NUM_CHECKS=10
+    # Define la cantidad de tiempo que se esperará entre cada verificación (en segundos)
+    WAIT_TIME=10
+    # Loop sobre los nombres de los pods
+    for POD_NAME in "${POD_NAMES[@]}"
+    do
+    # Inicializa una variable para contar el número de veces que se ha verificado el pod
+    CHECKS=0  
+        # Loop hasta que el pod esté en estado "Running"
+        while [[ $(kubectl -n ingress-nginx get pods | grep $POD_NAME | awk '{print $3}') != "Running" ]]
+        do
+            # Incrementa el contador de verificación
+            ((CHECKS++))         
+            # Verifica si se ha alcanzado el número máximo de verificaciones
+            if [[ $CHECKS -eq $NUM_CHECKS ]]; then
+                error_message "ERROR: Cannot verify pod $POD_NAME after $NUM_CHECKS attempts"
+                exit 1
+            fi           
+            # Espera antes de la siguiente verificación
+            info_progress "..."
+            sleep $WAIT_TIME
+        done
+    done
+
+    highlight_message "$KUBE_CLUSTER_NAME cluster started !"
 }
 
 remove_cluster() {
@@ -100,10 +141,7 @@ debug_cluster(){
        rm $log_dir/*.*
     fi
 
-    namespace_list=(${TF_VAR_NAMESPACE} ${TF_VAR_NAMESPACE_SHARED})
-    # namespace_list=( ${TF_VAR_NAMESPACE} )
-
-    for namespace in "${namespace_list[@]}"
+    for namespace in "${KUBE_NS_LIST[@]}"
         do
             echo "Namespace: $namespace"
 
@@ -152,6 +190,6 @@ debug_cluster(){
                 fi
                 done
 
-            echo "Debug files in ./$log_dir"
+            info_message "Debug files in ./$log_dir"
         done
 }
