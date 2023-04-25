@@ -1,4 +1,4 @@
 mirrors:
-  "localhost:5001":
+  "localhost:5000":
     endpoint:
-      - http://k3d-rocket.localhost:5001
+      - http://k3d-mobius.localhost:5000

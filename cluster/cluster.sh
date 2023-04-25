@@ -1,16 +1,15 @@
 #!/bin/bash
-#!/bin/bash
 
 source "$kube_dir/cluster/local_registry.sh"
 source "$kube_dir/common/common.sh"
 
 gen_registry_yaml(){
-  echo  "mirrors:" > $kube_dir/cluster/registries.yaml
-  echo  "  \"$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT\":"  >> $kube_dir/cluster/registries.yaml
-  echo  "    endpoint:"        >> $kube_dir/cluster/registries.yaml
-  echo  "      - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registries.yaml
+  echo  "mirrors:" > $kube_dir/cluster/registries2.yaml
+  echo  "  \"$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT\":"  >> $kube_dir/cluster/registries2.yaml
+  echo  "    endpoint:"        >> $kube_dir/cluster/registries2.yaml
+  echo  "      - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registries2.yaml
 }
-
+					  
 create_cluster(){
     info_message "Creating registry $KUBE_LOCALREGISTRY_NAME"
 
@@ -20,15 +19,16 @@ create_cluster(){
         k3d registry delete $registry_name
     fi   
     k3d registry create $KUBE_LOCALREGISTRY_NAME --port 0.0.0.0:${KUBE_LOCALREGISTRY_PORT}
-    
-    gen_registry_yaml;
-    
+
     info_message "Creating $KUBE_CLUSTER_NAME cluster..."
+    #gen_registry_yaml;
 
     KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT --registry-config $kube_dir/cluster/registries.yaml"
 
     k3d cluster create $KUBE_CLUSTER_NAME -p "80:80@loadbalancer" -p "$NGINX_EXTERNAL_TLS_PORT:443@loadbalancer" --agents 2 --k3s-arg "--disable=traefik@server:0" $KUBE_CLUSTER_REGISTRY
     
+    #k3d kubeconfig get $KUBE_CLUSTER_NAME > $kube_dir/cluster/cluster-config.yaml
+
     kubectl config use-context k3d-$KUBE_CLUSTER_NAME
     
     # Getting Images
@@ -36,12 +36,10 @@ create_cluster(){
     if [[ "$KUBE_IMAGE_PULL" == "YES" ]]; then
         push_images_to_local_registry;
     fi
-    
 
     # Install ingress
     kubectl create namespace ingress-nginx
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.3/deploy/static/provider/cloud/deploy.yaml -n ingress-nginx
-
     info_progress_header "Verifying $KUBE_CLUSTER_NAME cluster..."
 
     POD_NAMES=("ingress-nginx-controller")
@@ -70,7 +68,7 @@ create_cluster(){
         done
     done
 
-    highlight_message "$KUBE_CLUSTER_NAME cluster started !"
+    highlight_message "$KUBE_CLUSTER_NAME cluster started !"						  
 }
 
 remove_cluster() {
@@ -141,7 +139,10 @@ debug_cluster(){
        rm $log_dir/*.*
     fi
 
-    for namespace in "${KUBE_NS_LIST[@]}"
+    namespace_list=(${TF_VAR_NAMESPACE} ${TF_VAR_NAMESPACE_SHARED})
+    # namespace_list=( ${TF_VAR_NAMESPACE} )
+
+    for namespace in "${namespace_list[@]}"
         do
             echo "Namespace: $namespace"
 
@@ -190,6 +191,6 @@ debug_cluster(){
                 fi
                 done
 
-            info_message "Debug files in ./$log_dir"
+            echo "Debug files in ./$log_dir"
         done
 }
