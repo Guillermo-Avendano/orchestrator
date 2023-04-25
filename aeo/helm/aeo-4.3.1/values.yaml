@@ -4,14 +4,14 @@
 
 scheduler:
   replicas: 1
-  image: localhost:5001/aeo/scheduler:4.3.1.61
+  image: localhost:5000/aeo/scheduler:4.3.1.61
   enabled: true
   name: aeo-scheduler
   nodePort:
 
 clientmgr:
   replicas: 1
-  image: localhost:5001/aeo/clientmgr:4.3.1.61
+  image: localhost:5000/aeo/clientmgr:4.3.1.61
   name: aeo-clientmgr
 
 database:
@@ -25,7 +25,7 @@ database:
 
 agent:
   enabled: true
-  image: localhost:5001/aeo/agent:4.3.1.58
+  image: localhost:5000/aeo/agent:4.3.1.58
   name: aeo-agent
     
 
