@@ -3,12 +3,14 @@
 source "./env.sh"
 source "$kube_dir/cluster/cluster.sh"
 source "$kube_dir/cluster/kubernetes.sh"
+source "$kube_dir/database/database.sh"
 
 if [[ $# -eq 0 ]]; then
   echo "Parameters:"
   echo "==========="
   echo " - on      : start $PRODUCT cluster"
   echo " - off     : stop $PRODUCT cluster"
+  echo " - pgport  : Open postgres port $POSTGRESQL_PORT if active"
   echo " - imgls   : list images from $KUBE_SOURCE_REGISTRY (var KUBE_IMAGES in env.sh)"
   echo " - imgpull : pull images from $KUBE_SOURCE_REGISTRY (var KUBE_IMAGES in env.sh)"
   echo " - list    : list clusters"
@@ -38,6 +40,15 @@ else
             echo "$KUBE_CLUSTER_NAME cluster is not active"
          fi
 
+    elif [[ $option == "pgport" ]]; then
+
+         if get_database_status; then
+            # cluster/cluster.sh
+            configure_port_forwarding;
+         else
+            echo "$POSTGRESQL_PORT is not active"
+         fi
+		 
     elif [[ $option == "imgls" ]]; then
          # cluster/local_registry.sh
          list_images;
