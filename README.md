@@ -21,10 +21,10 @@
         export DOCKER_PASSWORD=[RCC password encripted base64]
 
 - Check versions for scheduler, clientmgr, and agent
-  ./cluster.sh imgls
+  ./rockcluster.sh imgls
 
 - Review variables in "./env.sh", example:
-      AEO_URL = "seo.rocketsoftware.com"
+      AEO_URL = "aeo.rocketsoftware.com"
 
    in "./env.sh", and add these values to /etc/hosts c:/windows/system32/drivers/etc/hosts
   with the IP where the custer will run, example:
@@ -35,7 +35,7 @@
 
 1; Install k3d, helm, kubectl and terraform
 
-- ./cluster.sh install
+- ./rockcluster.sh install
 
 2; set environment
 
@@ -43,7 +43,7 @@
 
 3; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
 
-- ./cluster.sh create
+- ./rockcluster.sh create
 
 4; Install scheduler, clientmgr, and agent
 
@@ -52,16 +52,16 @@
 
 ## Summary of commands
 
-|-------------------------|-----------------------------------------------------------------|
-| cluster.sh on         | start aeo cluster
-| cluster.sh off        | stop aeo cluster
-| cluster.sh imgls      | list images from registry.rocketsoftware.com
-| cluster.sh imgpull    | pull images from registry.rocketsoftware.com
-| cluster.sh list       | list clusters
-| cluster.sh create     | create aeo cluster
-| cluster.sh remove     | remove aeo cluster
-| cluster.sh debug      | generate outputs for get/describe of each kubernetes resources
-| cluster.sh install    | install k3d, kubectl, helm, and terraform
+|---------------------------|-----------------------------------------------------------------|
+| rockcluster.sh on         | start aeo cluster
+| rockcluster.sh off        | stop aeo cluster
+| rockcluster.sh imgls      | list images from registry.rocketsoftware.com
+| rockcluster.sh imgpull    | pull images from registry.rocketsoftware.com
+| rockcluster.sh list       | list clusters
+| rockcluster.sh create     | create aeo cluster
+| rockcluster.sh remove     | remove aeo cluster
+| rockcluster.sh debug      | generate outputs for get/describe of each kubernetes resources
+| rockcluster.sh install    | install k3d, kubectl, helm, and terraform
 
 ### Install of aeo componnets
 

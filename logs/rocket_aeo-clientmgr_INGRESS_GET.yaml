@@ -5,14 +5,14 @@ metadata:
     meta.helm.sh/release-name: aeo-rocket
     meta.helm.sh/release-namespace: rocket
     nginx.ingress.kubernetes.io/app-root: /aeo
-  creationTimestamp: "2023-04-24T18:35:07Z"
+  creationTimestamp: "2023-04-25T16:57:45Z"
   generation: 1
   labels:
     app.kubernetes.io/managed-by: Helm
   name: aeo-clientmgr
   namespace: rocket
-  resourceVersion: "3541"
-  uid: fdd5538a-9e3c-47cb-9256-3d24e5a4070f
+  resourceVersion: "1161"
+  uid: 24e9aae9-8fd6-4a5e-a619-555f2912a3af
 spec:
   ingressClassName: nginx
   rules:
@@ -29,6 +29,6 @@ spec:
 status:
   loadBalancer:
     ingress:
-    - ip: 172.19.0.3
-    - ip: 172.19.0.4
-    - ip: 172.19.0.5
+    - ip: 172.27.0.3
+    - ip: 172.27.0.4
+    - ip: 172.27.0.5

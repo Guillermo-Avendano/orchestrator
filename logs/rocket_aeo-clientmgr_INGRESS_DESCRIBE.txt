@@ -1,16 +1,13 @@
 Name:             aeo-clientmgr
 Namespace:        rocket
-Address:          172.19.0.3,172.19.0.4,172.19.0.5
+Address:          172.27.0.3,172.27.0.4,172.27.0.5
 Default backend:  default-http-backend:80 (<error: endpoints "default-http-backend" not found>)
 Rules:
   Host                    Path  Backends
   ----                    ----  --------
   aeo.rocketsoftware.com  
-                          /   aeo-clientmgr:7980 (10.42.2.22:7980)
+                          /   aeo-clientmgr:7980 (10.42.2.8:7980)
 Annotations:              meta.helm.sh/release-name: aeo-rocket
                           meta.helm.sh/release-namespace: rocket
                           nginx.ingress.kubernetes.io/app-root: /aeo
-Events:
-  Type    Reason  Age                    From                      Message
-  ----    ------  ----                   ----                      -------
-  Normal  Sync    7m19s (x2 over 7m56s)  nginx-ingress-controller  Scheduled for sync
+Events:                   <none>
