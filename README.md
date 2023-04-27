@@ -33,6 +33,9 @@
 
 ## Installation sequence
 
+0; Prepare scripts
+- ./prepare.sh  
+
 1; Install k3d, helm, kubectl and terraform
 
 - ./rockcluster.sh install
