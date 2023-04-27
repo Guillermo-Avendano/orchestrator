@@ -1,5 +1,9 @@
 version: "3.0"
 
+networks:
+  k3d-rocket:
+    external: true
+
 volumes:
   gfdata:
   pgadmin:
@@ -17,7 +21,9 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - gfdata:/etc/grafana/provisioning  
+      - gfdata:/etc/grafana/provisioning 
+    networks:
+      - k3d-rocket 
   pgadmin:
     container_name: pgadmin4
     image: dpage/pgadmin4
@@ -28,4 +34,6 @@ services:
     ports:
       - "5050:80"
     volumes:
-      - pgadmin:/var/lib/pgadmin        
+      - pgadmin:/var/lib/pgadmin     
+    networks:
+      - k3d-rocket          

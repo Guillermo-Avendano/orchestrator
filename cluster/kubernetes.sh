@@ -41,6 +41,7 @@ is_wsl() {
 }
 
 install_docker(){
+
   if is_wsl; then
     #Update Ubuntu distro
     sudo apt-get -y update
