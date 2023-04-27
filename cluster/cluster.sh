@@ -4,10 +4,10 @@ source "$kube_dir/cluster/local_registry.sh"
 source "$kube_dir/common/common.sh"
 
 gen_registry_yaml(){
-  echo  "mirrors:" > $kube_dir/cluster/registries2.yaml
-  echo  "  \"$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT\":"  >> $kube_dir/cluster/registries2.yaml
-  echo  "    endpoint:"        >> $kube_dir/cluster/registries2.yaml
-  echo  "      - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registries2.yaml
+  echo  "mirrors:" > $kube_dir/cluster/registry.yaml
+  echo  "  \"$KUBE_LOCALREGISTRY_HOST:$KUBE_LOCALREGISTRY_PORT\":"  >> $kube_dir/cluster/registry.yaml
+  echo  "    endpoint:"        >> $kube_dir/cluster/registry.yaml
+  echo  "      - http://k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT"   >> $kube_dir/cluster/registry.yaml
 }
 					  
 create_cluster(){
@@ -21,6 +21,7 @@ create_cluster(){
     k3d registry create $KUBE_LOCALREGISTRY_NAME --port 0.0.0.0:${KUBE_LOCALREGISTRY_PORT}
 
     info_message "Creating $KUBE_CLUSTER_NAME cluster..."
+    
     #gen_registry_yaml;
 
     KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT --registry-config $kube_dir/cluster/registries.yaml"
@@ -142,7 +143,7 @@ debug_cluster(){
     namespace_list=(${TF_VAR_NAMESPACE} ${TF_VAR_NAMESPACE_SHARED})
     # namespace_list=( ${TF_VAR_NAMESPACE} )
 
-    for namespace in "${namespace_list[@]}"
+    for namespace in "${$KUBE_NS_LIST[@]}"
         do
             echo "Namespace: $namespace"
 

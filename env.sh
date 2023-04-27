@@ -15,15 +15,15 @@ PRODUCT="Enterprise Orchestrator"
 
 export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml    # cluster/cluster.sh
 
-DOCKER_USER="gavendano@rs.com"                     # cluster/local_registry.sh  
-DOCKER_PASS=`echo $DOCKER_PASSWORD | base64 -d`    # $HOME/.profile -> DOCKER_PASSWORD encoded base64
+DOCKER_USER="gavendano@rs.com"                      # cluster/local_registry.sh  
+DOCKER_PASS=`echo $DOCKER_PASSWORD | base64 -d`     # $HOME/.profile -> DOCKER_PASSWORD encoded base64
 
 KUBE_SOURCE_REGISTRY="registry.rocketsoftware.com"  # cluster/local_registry.sh 
-KUBE_LOCALREGISTRY_NAME="mobius.localhost"          # cluster/local_registry.sh
+KUBE_LOCALREGISTRY_NAME="mobius.localhost"        # cluster/local_registry.sh
 KUBE_LOCALREGISTRY_HOST="localhost"                 # cluster/local_registry.sh 
 KUBE_LOCALREGISTRY_PORT="5000"                      # cluster/local_registry.sh 
-KUBE_IMAGE_PULL="YES"                                # cluster/cluster.sh
-export KUBE_NS_LIST=($NAMESPACE)
+KUBE_IMAGE_PULL="YES"                               # cluster/cluster.sh
+export KUBE_NS_LIST=( "$NAMESPACE" )
 NGINX_EXTERNAL_TLS_PORT=443
 
 ################################################################################
