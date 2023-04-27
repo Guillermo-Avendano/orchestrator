@@ -102,10 +102,8 @@ else
          
     elif [[ $option == "install" ]]; then
          
-         if ! docker --version  >/dev/null 2>&1; then
-            # cluster/kubernetes.sh
-            install_docker;
-         fi
+         # cluster/kubernetes.sh
+         install_docker;
 
          # cluster/kubernetes.sh
          install_docker_compose;
