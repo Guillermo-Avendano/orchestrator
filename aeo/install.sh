@@ -25,7 +25,6 @@ POD_NAMES=("agent" "scheduler" "clientmgr")
 
 info_progress_header "Verifying Orchestrator services";
 
-POD_NAMES=("ingress-nginx-controller")
 # Define la cantidad de veces que se verificarán los pods
 NUM_CHECKS=10
 # Define la cantidad de tiempo que se esperará entre cada verificación (en segundos)
