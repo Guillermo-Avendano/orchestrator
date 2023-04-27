@@ -107,24 +107,18 @@ else
             install_docker;
          fi
 
-         if ! docker-compose --version  >/dev/null 2>&1; then
-            # cluster/kubernetes.sh
-            install_docker_compose;
-         fi
+         # cluster/kubernetes.sh
+         install_docker_compose;
+
+         # cluster/kubernetes.sh
+         install_kubectl;
+
+         # cluster//kubernetes.sh
+         install_helm;
 
          if ! k3d --version >/dev/null 2>&1; then
             # cluster/kubernetes.sh
             install_k3d;
-         fi
-
-         if ! kubectl version >/dev/null 2>&1; then
-            # cluster/kubernetes.sh
-            install_kubectl;
-         fi
-
-         if helm version  >/dev/null 2>&1; then
-            # cluster//kubernetes.sh
-            install_helm;
          fi
 
          if ! terraform -version  >/dev/null 2>&1; then
