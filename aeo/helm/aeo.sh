@@ -31,11 +31,11 @@ install_aeo(){
     info_message "Deploying Orchestrator Helm chart";
 
     helm upgrade -f $AEO_VALUES aeo-$NAMESPACE helm/aeo-4.3.1 --namespace $NAMESPACE --install;
+}
 
+wait_for_aeo_ready(){
     # Define los nombres de los pods que se deben verificar
     POD_NAMES=("agent" "scheduler" "clientmgr")
-
-    info_progress_header "Verifying Orchestrator services";
 
     # Define la cantidad de veces que se verificarán los pods
     NUM_CHECKS=10
@@ -61,8 +61,6 @@ install_aeo(){
             sleep $WAIT_TIME
         done
     done
-
-    highlight_message "Orchestrator services started !"
 
     highlight_message "kubectl -n $NAMESPACE get pods"
     kubectl -n $NAMESPACE get pods
