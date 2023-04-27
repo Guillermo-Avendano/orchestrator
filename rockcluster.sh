@@ -77,11 +77,17 @@ else
 
     elif [[ $option == "remove" ]]; then
          
+         registry_name=k3d-$KUBE_LOCALREGISTRY_NAME
+
          if exist_cluster; then
             # cluster/cluster.sh
             remove_cluster;
          else
-            echo "$KUBE_CLUSTER_NAME cluster doesn't exist"            
+            echo "$KUBE_CLUSTER_NAME cluster doesn't exist" 
+            if k3d registry list | grep $registry_name >/dev/null; then
+               echo "Deleting existing registry $registry_name"
+               k3d registry delete $registry_name
+            fi   
          fi
 
     elif [[ $option == "debug" ]]; then
