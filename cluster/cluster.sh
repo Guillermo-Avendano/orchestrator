@@ -140,10 +140,7 @@ debug_cluster(){
        rm $log_dir/*.*
     fi
 
-    namespace_list=(${TF_VAR_NAMESPACE} ${TF_VAR_NAMESPACE_SHARED})
-    # namespace_list=( ${TF_VAR_NAMESPACE} )
-
-    for namespace in "${$KUBE_NS_LIST[@]}"
+    for namespace in "${KUBE_NS_LIST[@]}"
         do
             echo "Namespace: $namespace"
 

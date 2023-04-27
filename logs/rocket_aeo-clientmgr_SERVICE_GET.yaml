@@ -4,18 +4,18 @@ metadata:
   annotations:
     meta.helm.sh/release-name: aeo-rocket
     meta.helm.sh/release-namespace: rocket
-  creationTimestamp: "2023-04-25T16:57:45Z"
+  creationTimestamp: "2023-04-27T13:44:56Z"
   labels:
     app: aeo-clientmgr
     app.kubernetes.io/managed-by: Helm
   name: aeo-clientmgr
   namespace: rocket
-  resourceVersion: "999"
-  uid: 964bb955-ea09-4ca3-8ba3-adde1aa64744
+  resourceVersion: "1982"
+  uid: 0b37d6f6-ba8d-4008-927f-98c10d3db1e2
 spec:
-  clusterIP: 10.43.5.142
+  clusterIP: 10.43.171.150
   clusterIPs:
-  - 10.43.5.142
+  - 10.43.171.150
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -23,12 +23,12 @@ spec:
   ipFamilyPolicy: SingleStack
   ports:
   - name: aeo-web
-    nodePort: 30081
+    nodePort: 31946
     port: 7980
     protocol: TCP
     targetPort: 7980
   - name: "7911"
-    nodePort: 32711
+    nodePort: 30527
     port: 7911
     protocol: TCP
     targetPort: 7911
