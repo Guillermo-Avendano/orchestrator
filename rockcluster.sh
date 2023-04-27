@@ -116,15 +116,13 @@ else
          # cluster//kubernetes.sh
          install_helm;
 
-         if ! k3d --version >/dev/null 2>&1; then
-            # cluster/kubernetes.sh
-            install_k3d;
-         fi
+         # cluster/kubernetes.sh
+         install_k3d;
 
-         if ! terraform -version  >/dev/null 2>&1; then
+         #if ! terraform -version  >/dev/null 2>&1; then
             # cluster/kubernetes.sh
-            install_terraform;
-         fi
+         #   install_terraform;
+         #fi
     else    
       echo "($option) is not valid."
     fi
