@@ -2,4 +2,7 @@
 #execute dos2unix
 find . -name "*.yaml" -exec dos2unix {} \;
 find . -name "*.sh" -exec dos2unix {} \;
-dos2unix .env
+
+sudo systemctl restart docker.service
+chmod -R u+x *.sh
+sudo chmod 666 //var/run/docker.sock
