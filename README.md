@@ -11,7 +11,7 @@
 - Ubuntu WSL Installation: https://learn.microsoft.com/en-us/windows/wsl/install-manual
 
 ## Preinstallation actions
-### Ubuntu: get installations scripts
+### Ubuntu: get installations scripts (don't use root user)
 ```bash
 git clone https://github.com/guillermo-avendano/orchestrator.git
 cd orchestrator
@@ -59,7 +59,7 @@ AEO_URL = "aeo.rocketsoftware.com"
 ```bash
 192.168.0.5     aeo.rocketsoftware.com
 ```
-## Installation sequence (don't use root user)
+## Installation sequence 
 
 1; Pre-requisites
 - Install dos2unix
