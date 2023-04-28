@@ -16,18 +16,15 @@
 git clone https://github.com/guillermo-avendano/orchestrator.git
 cd orchestrator
 ```
-### Define variable DOCKER_PASSWORD in "$HOME/.profile" for pulling imags from "registry.rocketsoftware.com"
+### Define variables DOCKER_USERNAME, and DOCKER_PASSWORD in "$HOME/.profile" for pulling images from "registry.rocketsoftware.com"
 - Encrypt password
 ```bash
 echo "RCC password" | base64
 ```
-- Edit "$HOME/.profile" (nano $HOME/.profile), and define the variable DOCKER_PASWORD with the output of previous "echo"
+- Edit "$HOME/.profile" (nano $HOME/.profile), and define the variables DOCKER_USERNAME with your RCC username, and DOCKER_PASWORD with the output of previous "echo"
 ```bash
+export DOCKER_USERNAME="[RCC user]"@rs.com"
 export DOCKER_PASSWORD="[RCC password encripted base64]"
-```
-### Edit ./env.sh (nano ./env.sh), and update variable DOCKER_USER in
-```bash
-DOCKER_USER="<RCC user>@rs.com"
 ```
 ### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
 ```bash
@@ -119,7 +116,7 @@ cd aeo
 | ./rockcluster.sh list | list clusters |
 | ./rockcluster.sh create | create aeo cluster |
 | ./rockcluster.sh remove | remove aeo cluster |
-| ./rockcluster.sh debug | generate outputs for get/describe for kubernetes resources  |
+| ./rockcluster.sh debug | get/describe of kubernetes resources  |
 
 ### Install aeo components (under "orchestrator" directory)
 ```bash
