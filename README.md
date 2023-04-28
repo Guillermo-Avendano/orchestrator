@@ -85,12 +85,12 @@ cd aeo
 | rockcluster.sh remove | remove aeo cluster |
 | rockcluster.sh debug | generate outputs for get/describe of each kubernetes resources  |
 
-### Install of aeo components
+### Install aeo components
 
 - cd aeo
 - ./install.sh
 
-### Remove aeo components with the namespece associated.
+### Remove components with the namespece associated.
 
 - cd aeo
 - ./remove.sh
