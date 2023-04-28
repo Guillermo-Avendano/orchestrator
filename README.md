@@ -2,8 +2,7 @@
 
 ## Introduction
 
-- This project includes the installation of k3d, helm, and terraform as infrastructure for installing aeo 4.3.x.
-- bash scripts + helm for aeo
+- Enterprise Orchestrator 4.3.1.x - k3d installation
 
 ## Prerequisites
 
