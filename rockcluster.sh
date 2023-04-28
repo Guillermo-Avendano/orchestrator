@@ -17,7 +17,7 @@ if [[ $# -eq 0 ]]; then
   echo " - create  : create $PRODUCT cluster"  
   echo " - remove  : remove $PRODUCT cluster"
   echo " - debug   : generate outputs for get/describe of each kubernetes resources"
-  echo " - install : install k3d, helm, kubectl and terraform"
+ 
 else
   for option in "$@"; do
     if [[ $option == "on" ]]; then
@@ -100,27 +100,6 @@ else
             echo "$KUBE_CLUSTER_NAME cluster is not active"            
          fi  
          
-    elif [[ $option == "install" ]]; then
-         
-         # cluster/kubernetes.sh
-         install_docker;
-
-         # cluster/kubernetes.sh
-         install_docker_compose;
-
-         # cluster/kubernetes.sh
-         install_kubectl;
-
-         # cluster//kubernetes.sh
-         install_helm;
-
-         # cluster/kubernetes.sh
-         install_k3d;
-
-         #if ! terraform -version  >/dev/null 2>&1; then
-            # cluster/kubernetes.sh
-         #   install_terraform;
-         #fi
     else    
       echo "($option) is not valid."
     fi

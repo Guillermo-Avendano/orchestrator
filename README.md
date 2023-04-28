@@ -59,7 +59,7 @@ AEO_URL = "aeo.rocketsoftware.com"
 ```bash
 192.168.0.5     aeo.rocketsoftware.com
 ```
-## Installation sequence
+## Installation sequence (don't use root user)
 
 1; Pre-requisites
 - Install dos2unix
