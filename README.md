@@ -132,7 +132,7 @@ cd aeo
 ./remove.sh
 ```
 
-### Activate pgadmin & grafana (pre-rer: "./rockcluster.sh pgport")
+### Activate pgadmin & grafana (pre-requisite: "./rockcluster.sh pgport")
 - Start pgadmin & Grafana
 ```bash
 cd tools
