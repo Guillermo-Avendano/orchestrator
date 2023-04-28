@@ -72,7 +72,7 @@ cd aeo
 |:---|:---|
 | rockcluster.sh on | start aeo cluster |
 | rockcluster.sh off | stop aeo cluster |
-| rockcluster.sh pgport | Open postgres port if active for remote access from other tools |
+| rockcluster.sh pgport | Open postgres port if active for remote access from SQL tools |
 | rockcluster.sh imgls | list images from registry.rocketsoftware.com |
 | rockcluster.sh imgpull | pull images from registry.rocketsoftware.com |
 | rockcluster.sh list | list clusters |
