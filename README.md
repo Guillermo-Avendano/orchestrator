@@ -55,17 +55,16 @@
 
 ## Summary of commands
 
-|---------------------------|-----------------------------------------------------------------|
-| rockcluster.sh on         | start aeo cluster
-| rockcluster.sh off        | stop aeo cluster
-| rockcluster.sh pgport     | Open postgres port if active for remote access from other tools
-| rockcluster.sh imgls      | list images from registry.rocketsoftware.com
-| rockcluster.sh imgpull    | pull images from registry.rocketsoftware.com
-| rockcluster.sh list       | list clusters
-| rockcluster.sh create     | create aeo cluster
-| rockcluster.sh remove     | remove aeo cluster
-| rockcluster.sh debug      | generate outputs for get/describe of each kubernetes resources
-| rockcluster.sh install    | install k3d, kubectl, helm, and terraform
+|:--------------------------|:----------------------------------------------------------------|
+| rockcluster.sh on         | start aeo cluster                                               |
+| rockcluster.sh off        | stop aeo cluster                                                |
+| rockcluster.sh pgport     | Open postgres port if active for remote access from other tools |
+| rockcluster.sh imgls      | list images from registry.rocketsoftware.com                    |
+| rockcluster.sh imgpull    | pull images from registry.rocketsoftware.com                    |
+| rockcluster.sh list       | list clusters                                                   |
+| rockcluster.sh create     | create aeo cluster                                              |
+| rockcluster.sh remove     | remove aeo cluster                                              |
+| rockcluster.sh debug      | generate outputs for get/describe of each kubernetes resources  |
 
 ### Install of aeo componnets
 
