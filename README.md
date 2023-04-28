@@ -122,11 +122,32 @@ cd aeo
 | ./rockcluster.sh debug | generate outputs for get/describe for kubernetes resources  |
 
 ### Install aeo components (under "orchestrator" directory)
-
-- cd aeo
-- ./install.sh
-
+```bash
+cd aeo
+./install.sh
+```
 ### Remove components with the namespece associated. (under "orchestrator" directory)
+```bash
+cd aeo
+./remove.sh
+```
 
-- cd aeo
-- ./remove.sh
+### Activate pgadmin & grafana (pre-rer: "./rockcluster.sh pgport")
+- Start pgadmin & Grafana
+```bash
+cd tools
+./run.sh
+```
+#### pgadmin: http:// aeo.rocketsoftware.com:5050
+- user: admin@admin.com
+- password: admin
+
+server: IP Address where cluster is running , database=aeo, user=aeo, password=aeo
+#### grafana: http:// aeo.rocketsoftware.com:3000
+
+### Stop pgadmin & grafana
+```bash
+cd tools
+./stop.sh
+```
+
