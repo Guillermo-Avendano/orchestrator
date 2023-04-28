@@ -44,8 +44,8 @@ else
 
          if get_database_status; then
             # cluster/cluster.sh
+            sudo ufw allow 5432
             configure_port_forwarding;
-            echo "Configure firewall, execute: sudo ufw allow 5432"
          else
             echo "$POSTGRESQL_PORT is not active"
          fi

@@ -60,7 +60,7 @@ get_database_status() {
 }
 
 configure_port_forwarding() {
-    kubectl port-forward --namespace $NAMESPACE --address 0.0.0.0 svc/postgresql 5432:5432&
+    nohup kubectl port-forward --namespace $NAMESPACE --address 0.0.0.0 svc/postgresql 5432:5432 &
 }
 
 wait_for_database_ready() {
