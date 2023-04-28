@@ -57,11 +57,15 @@ source env.sh
 ```bash
 ./pre-reqs-install.sh
 ```
-4; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
+4; Verify docker (more information https://docs.docker.com/desktop/install/ubuntu/)
+```bash
+docker version
+```
+5; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
 ```bash
 ./rockcluster.sh create
 ```
-5; Install database, scheduler, clientmgr, and agent
+6; Install database, scheduler, clientmgr, and agent
 ```bash
 cd aeo
 ./install.sh
