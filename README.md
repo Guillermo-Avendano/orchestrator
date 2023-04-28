@@ -48,7 +48,7 @@
 4; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
 - ./rockcluster.sh create
 
-5; Install scheduler, clientmgr, and agent
+5; Install database, scheduler, clientmgr, and agent
 - cd aeo
 - ./install.sh
 
