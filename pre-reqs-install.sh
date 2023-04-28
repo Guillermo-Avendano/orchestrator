@@ -1,31 +1,31 @@
 #!/bin/bash
 
 install_docker_compose() {
-    info_message "Installing docker_compose..."
+    echo "Installing docker_compose..."
     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 }
 
 install_k3d() {
-    info_message "Installing k3d..."
+    echo "Installing k3d..."
     curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | TAG=v5.4.6 bash
 }
 
 install_kubectl() {
-    info_message "Installing kubectl..."
+    echo "Installing kubectl..."
     curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.17/2023-01-30/bin/linux/amd64/kubectl
     chmod +x kubectl
     sudo mv kubectl /usr/local/bin/kubectl
 }
 
 install_helm() {
-    info_message "Installing helm..."
+    echo "Installing helm..."
     export DESIRED_VERSION=v3.8.2
     curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 }
 
 install_terraform() {
-    info_message "Installing terraform..."
+    echo "Installing terraform..."
     sudo apt install -y gnupg software-properties-common curl
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
     sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"

@@ -62,12 +62,20 @@ AEO_URL = "aeo.rocketsoftware.com"
 ## Installation sequence
 
 1; Pre-requisites
+- Install dos2unix
 ```bash
 sudo apt install -y dos2unix
+```
+- Change file formats
+```bash
 find . -name "*.yaml" -exec dos2unix {} \;
 find . -name "*.sh" -exec dos2unix {} \;
+```
+- Enable scripts for execution
+```bash
 chmod -R u+x *.sh
 ```
+
 2; set environment
 ```bash
 source env.sh
