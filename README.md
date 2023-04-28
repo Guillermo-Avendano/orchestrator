@@ -40,6 +40,7 @@ source ./env.sh
 ```
 ### Check versions for scheduler, clientmgr, and agent
 ```bash
+# orchestrator folder
 ./rockcluster.sh imgls
 ```
 ### Variables in "./env.sh", update image versions, and AEO_URL if needed:
@@ -66,11 +67,13 @@ sudo apt install -y dos2unix
 ```
 - Change file formats
 ```bash
+# orchestrator folder
 find . -name "*.yaml" -exec dos2unix {} \;
 find . -name "*.sh" -exec dos2unix {} \;
 ```
 - Enable scripts for execution
 ```bash
+# orchestrator folder
 chmod -R u+x *.sh
 ```
 
@@ -82,6 +85,7 @@ source ./env.sh
 ```
 3; Install docker, k3d, helm, kubectl and terraform
 ```bash
+# orchestrator folder
 ./pre-reqs-install.sh
 ```
 4; Verify docker (more information https://docs.docker.com/desktop/install/ubuntu/)
@@ -90,16 +94,19 @@ docker version
 ```
 5; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
 ```bash
+# orchestrator folder
 ./rockcluster.sh create
 ```
 6; Install database
 ```bash
+# orchestrator folder
 cd aeo-database
 ./install.sh
 cd ..
 ```
 6; Install scheduler, clientmgr, and agent
 ```bash
+# orchestrator folder
 cd aeo
 ./install.sh
 ```
@@ -123,11 +130,13 @@ cd aeo
 
 ### Install aeo components (under "orchestrator" directory)
 ```bash
+# orchestrator folder
 cd aeo
 ./install.sh
 ```
 ### Remove components with the namespece associated. (under "orchestrator" directory)
 ```bash
+# orchestrator folder
 cd aeo
 ./remove.sh
 ```
@@ -135,6 +144,7 @@ cd aeo
 ### Activate pgadmin & grafana (pre-requisite: "./rockcluster.sh pgport")
 - Start pgadmin & Grafana
 ```bash
+# orchestrator folder
 cd tools
 ./run.sh
 ```
@@ -147,6 +157,7 @@ server: IP Address where cluster is running , database=aeo, user=aeo, password=a
 
 ### Stop pgadmin & grafana
 ```bash
+# orchestrator folder
 cd tools
 ./stop.sh
 ```
