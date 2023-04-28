@@ -10,23 +10,27 @@
 - 16 GB / 4 CPUs
 
 ## Preinstallation actions
-
-- Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
+### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
+```bash
 -- alias k="kubectl"
 -- alias ta="terraform apply"
 -- alias ti="terraform init"
+```
+### Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
+```bash
+   export DOCKER_PASSWORD=[RCC password encripted base64]
+```
 
-- Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
---  export DOCKER_PASSWORD=[RCC password encripted base64]
-
-- Check versions for scheduler, clientmgr, and agent
+### Check versions for scheduler, clientmgr, and agent
+```bash
   ./rockcluster.sh imgls
-
-- Review variables in "./env.sh", example:
+```
+### Review variables in "./env.sh", example:
+```bash
       AEO_URL = "aeo.rocketsoftware.com"
+```
 
-   in "./env.sh", and add these values to /etc/hosts c:/windows/system32/drivers/etc/hosts
-  with the IP where the custer will run, example:
+###  in "./env.sh", and add these values to /etc/hosts c:/windows/system32/drivers/etc/hosts with the IP where the custer will run, example:
 
      192.168.0.5     aeo.rocketsoftware.com
 
