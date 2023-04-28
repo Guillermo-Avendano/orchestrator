@@ -119,7 +119,7 @@ cd aeo
 | ./rockcluster.sh list | list clusters |
 | ./rockcluster.sh create | create aeo cluster |
 | ./rockcluster.sh remove | remove aeo cluster |
-| ./rockcluster.sh debug | get/describe of kubernetes resources  |
+| ./rockcluster.sh debug | output of kubectl get/describe of aeo's kubernetes resources |
 
 ### Install aeo components (under "orchestrator" directory)
 ```bash
