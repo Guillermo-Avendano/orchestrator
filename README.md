@@ -8,6 +8,7 @@
 
 - Ubuntu-WSL / Ubuntu 20.04 or higher
 - 16 GB / 4 CPUs
+- Ubuntu WSL Installation: https://learn.microsoft.com/en-us/windows/wsl/install-manual
 
 ## Preinstallation actions
 ### Define variable DOCKER_PASSWORD in "$HOME/.profile" for pulling imags from "registry.rocketsoftware.com"
