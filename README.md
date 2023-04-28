@@ -3,9 +3,6 @@
 ## Introduction
 
 - Enterprise Orchestrator 4.3.1.x - k3d installation
-```bash
-git clone https://github.com/guillermo-avendano/orchestrator.git
-```
 
 ## Prerequisites
 
@@ -14,6 +11,11 @@ git clone https://github.com/guillermo-avendano/orchestrator.git
 - Ubuntu WSL Installation: https://learn.microsoft.com/en-us/windows/wsl/install-manual
 
 ## Preinstallation actions
+### Ubuntu: get installations scripts
+```bash
+git clone https://github.com/guillermo-avendano/orchestrator.git
+cd orchestrator
+```
 ### Define variable DOCKER_PASSWORD in "$HOME/.profile" for pulling imags from "registry.rocketsoftware.com"
 ```bash
 echo "RCC password" | base64
