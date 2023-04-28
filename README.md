@@ -74,6 +74,10 @@ docker version
 cd aeo
 ./install.sh
 ```
+6; Enterprise Orchestrator URL: http://aeo.rocketsoftware.com/aeo
+- user: aeo
+- password: aeo
+
 ## Summary of commands
 
 | Command | Description |
