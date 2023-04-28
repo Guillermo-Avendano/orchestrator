@@ -92,7 +92,13 @@ docker version
 ```bash
 ./rockcluster.sh create
 ```
-6; Install database, scheduler, clientmgr, and agent
+6; Install database
+```bash
+cd aeo-database
+./install.sh
+cd ..
+```
+6; Install scheduler, clientmgr, and agent
 ```bash
 cd aeo
 ./install.sh
