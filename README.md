@@ -135,12 +135,12 @@ cd aeo
 cd tools
 ./run.sh
 ```
-#### pgadmin: http:// aeo.rocketsoftware.com:5050
+#### pgadmin: http://aeo.rocketsoftware.com:5050
 - user: admin@admin.com
 - password: admin
 
 server: IP Address where cluster is running , database=aeo, user=aeo, password=aeo
-#### grafana: http:// aeo.rocketsoftware.com:3000
+#### grafana: http://aeo.rocketsoftware.com:3000
 
 ### Stop pgadmin & grafana
 ```bash
