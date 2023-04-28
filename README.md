@@ -88,7 +88,7 @@ cd aeo
 - user: aeo
 - password: aeo
 
-## Summary of commands
+## Summary of commands (under "orchestrator" directory)
 
 | Command | Description |
 |:---|:---|
@@ -102,12 +102,12 @@ cd aeo
 | ./rockcluster.sh remove | remove aeo cluster |
 | ./rockcluster.sh debug | generate outputs for get/describe for kubernetes resources  |
 
-### Install aeo components
+### Install aeo components (under "orchestrator" directory)
 
 - cd aeo
 - ./install.sh
 
-### Remove components with the namespece associated.
+### Remove components with the namespece associated. (under "orchestrator" directory)
 
 - cd aeo
 - ./remove.sh
