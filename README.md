@@ -33,23 +33,22 @@
 
 ## Installation sequence
 
-0; Prepare scripts
-- ./prepare.sh  
-
-1; Install k3d, helm, kubectl and terraform
-
-- ./rockcluster.sh install
+1; Pre-requisites
+- sudo apt install -y dos2unix
+- find . -name "*.yaml" -exec dos2unix {} \;
+- find . -name "*.sh" -exec dos2unix {} \;
+- chmod -R u+x *.sh
 
 2; set environment
-
 - source env.sh
 
-3; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
+3; Install docker, k3d, helm, kubectl and terraform
+- ./pre-reqs-install.sh
 
+4; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
 - ./rockcluster.sh create
 
-4; Install scheduler, clientmgr, and agent
-
+5; Install scheduler, clientmgr, and agent
 - cd aeo
 - ./install.sh
 
@@ -67,12 +66,12 @@
 | rockcluster.sh remove | remove aeo cluster |
 | rockcluster.sh debug | generate outputs for get/describe of each kubernetes resources  |
 
-### Install of aeo componnets
+### Install of aeo components
 
 - cd aeo
 - ./install.sh
 
-### Remove aeo componnets with the namespece associated. The cluster and images are maintained
+### Remove aeo components with the namespece associated. The cluster and images are maintained
 
 - cd aeo
 - ./remove.sh
