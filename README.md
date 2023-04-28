@@ -35,6 +35,10 @@ alias k="kubectl"
 alias ta="terraform apply"
 alias ti="terraform init"
 ```
+### Update environment variables
+```bash
+source $HOME/.profile
+```
 ### Check versions for scheduler, clientmgr, and agent
 ```bash
 ./rockcluster.sh imgls
