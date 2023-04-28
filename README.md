@@ -21,7 +21,7 @@ cd orchestrator
 ```bash
 echo "RCC password" | base64
 ```
-- Edit "$HOME/.profile", and define the variable DOCKER_PASWORD with the output of previous "echo"
+- Edit "$HOME/.profile" (nano $HOME/.profile), and define the variable DOCKER_PASWORD with the output of previous "echo"
 ```bash
 export DOCKER_PASSWORD="[RCC password encripted base64]"
 ```
