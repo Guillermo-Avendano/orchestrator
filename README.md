@@ -38,6 +38,7 @@ alias ti="terraform init"
 ### Update environment variables
 ```bash
 source $HOME/.profile
+source ./env.sh
 ```
 ### Check versions for scheduler, clientmgr, and agent
 ```bash
