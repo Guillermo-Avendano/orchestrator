@@ -32,9 +32,10 @@ alias k="kubectl"
 alias ta="terraform apply"
 alias ti="terraform init"
 ```
-### Update environment variables
+### Refresh environment variables
 ```bash
 source $HOME/.profile
+# orchestrator folder
 source ./env.sh
 ```
 ### Check versions for scheduler, clientmgr, and agent
@@ -73,9 +74,11 @@ find . -name "*.sh" -exec dos2unix {} \;
 chmod -R u+x *.sh
 ```
 
-2; set environment
+2; Refresh environment variables
 ```bash
-source env.sh
+source $HOME/.profile
+# orchestrator folder
+source ./env.sh
 ```
 3; Install docker, k3d, helm, kubectl and terraform
 ```bash
