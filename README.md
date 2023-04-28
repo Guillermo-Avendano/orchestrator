@@ -42,7 +42,7 @@ source ./env.sh
 ```bash
 ./rockcluster.sh imgls
 ```
-### Variables in "./env.sh", update image versions if needed:
+### Variables in "./env.sh", update image versions, and AEO_URL if needed:
 ```bash
 IMAGE_SCHEDULER_NAME=aeo/scheduler
 IMAGE_SCHEDULER_VERSION=4.3.1.61
