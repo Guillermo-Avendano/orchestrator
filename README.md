@@ -10,30 +10,35 @@
 - 16 GB / 4 CPUs
 
 ## Preinstallation actions
-### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
-```bash
--- alias k="kubectl"
--- alias ta="terraform apply"
--- alias ti="terraform init"
-```
 ### Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
 ```bash
-   export DOCKER_PASSWORD=[RCC password encripted base64]
+export DOCKER_PASSWORD=[RCC password encripted base64]
 ```
-
+### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
+```bash
+alias k="kubectl"
+alias ta="terraform apply"
+alias ti="terraform init"
+```
 ### Check versions for scheduler, clientmgr, and agent
 ```bash
-  ./rockcluster.sh imgls
+./rockcluster.sh imgls
 ```
-### Review variables in "./env.sh", example:
+### Variables in "./env.sh", update image versions if needed:
 ```bash
-      AEO_URL = "aeo.rocketsoftware.com"
+IMAGE_SCHEDULER_NAME=aeo/scheduler
+IMAGE_SCHEDULER_VERSION=4.3.1.61
+IMAGE_CLIENTMGR_NAME=aeo/clientmgr
+IMAGE_CLIENTMGR_VERSION=4.3.1.61
+IMAGE_AGENT_NAME=aeo/agent
+IMAGE_AGENT_VERSION=4.3.1.58
+AEO_URL = "aeo.rocketsoftware.com"
 ```
 
 ###  in "./env.sh", and add these values to /etc/hosts c:/windows/system32/drivers/etc/hosts with the IP where the custer will run, example:
-
-     192.168.0.5     aeo.rocketsoftware.com
-
+```bash
+192.168.0.5     aeo.rocketsoftware.com
+```
 ## Installation sequence
 
 1; Pre-requisites
