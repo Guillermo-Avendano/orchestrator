@@ -71,7 +71,7 @@
 - cd aeo
 - ./install.sh
 
-### Remove aeo components with the namespece associated. The cluster and images are maintained
+### Remove aeo components with the namespece associated.
 
 - cd aeo
 - ./remove.sh
