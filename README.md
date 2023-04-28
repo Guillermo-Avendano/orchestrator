@@ -90,7 +90,7 @@ cd aeo
 | rockcluster.sh list | list clusters |
 | rockcluster.sh create | create aeo cluster |
 | rockcluster.sh remove | remove aeo cluster |
-| rockcluster.sh debug | generate outputs for get/describe of each kubernetes resources  |
+| rockcluster.sh debug | generate outputs for get/describe for kubernetes resources  |
 
 ### Install aeo components
 
