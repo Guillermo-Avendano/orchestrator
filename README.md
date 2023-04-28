@@ -107,7 +107,7 @@ cd aeo
 - user: aeo
 - password: aeo
 
-## Summary of commands (under "orchestrator" directory)
+## Summary of commands
 
 | Command | Description |
 |:---|:---|
