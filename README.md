@@ -25,7 +25,7 @@ echo "RCC password" | base64
 ```bash
 export DOCKER_PASSWORD="[RCC password encripted base64]"
 ```
-### Define variable DOCKER_USER in ./env.sh
+### Update variable DOCKER_USER in ./env.sh
 ```bash
 DOCKER_USER="<RCC user>@rs.com"
 ```
