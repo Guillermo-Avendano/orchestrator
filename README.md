@@ -17,8 +17,12 @@ git clone https://github.com/guillermo-avendano/orchestrator.git
 cd orchestrator
 ```
 ### Define variable DOCKER_PASSWORD in "$HOME/.profile" for pulling imags from "registry.rocketsoftware.com"
+- Encript password
 ```bash
 echo "RCC password" | base64
+```
+- Assign encripted password to DOCKER_PASWORD in "$HOME/.profile"
+```bash
 export DOCKER_PASSWORD=[RCC password encripted base64]
 ```
 ### Define variable DOCKER_USER in ./env.sh
