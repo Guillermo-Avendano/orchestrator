@@ -10,7 +10,7 @@
 - 16 GB / 4 CPUs
 
 ## Preinstallation actions
-### Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
+### Define variable DOCKER_PASSWORD in "$HOME/.profile" for pulling imags from "registry.rocketsoftware.com"
 ```bash
 echo "RCC password" | base64
 export DOCKER_PASSWORD=[RCC password encripted base64]
@@ -49,20 +49,23 @@ find . -name "*.yaml" -exec dos2unix {} \;
 find . -name "*.sh" -exec dos2unix {} \;
 chmod -R u+x *.sh
 ```
-
 2; set environment
-- source env.sh
-
+```bash
+source env.sh
+```
 3; Install docker, k3d, helm, kubectl and terraform
-- ./pre-reqs-install.sh
-
+```bash
+./pre-reqs-install.sh
+```
 4; Create the cluster for aeo, and pull images from registry.rocketsoftware.com
-- ./rockcluster.sh create
-
+```bash
+./rockcluster.sh create
+```
 5; Install database, scheduler, clientmgr, and agent
-- cd aeo
-- ./install.sh
-
+```bash
+cd aeo
+./install.sh
+```
 ## Summary of commands
 
 | Command | Description |
