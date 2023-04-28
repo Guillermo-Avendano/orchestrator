@@ -30,7 +30,7 @@ install_aeo(){
 
     info_message "Deploying Orchestrator Helm chart";
 
-    helm upgrade -f $AEO_VALUES aeo-$NAMESPACE helm/aeo-4.3.1 --namespace $NAMESPACE --install --wait;
+    helm upgrade -f $AEO_VALUES aeo-$NAMESPACE helm/aeo-4.3.1 --namespace $NAMESPACE --create-namespace --install --wait;
 }
 
 wait_for_aeo_ready(){

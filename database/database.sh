@@ -41,7 +41,7 @@ install_database() {
 
         info_message "Deploying postgresql Helm chart";
 
-        helm upgrade -f $POSTGRES_CONF_FILE postgresql bitnami/postgresql --namespace $NAMESPACE --version 11.8.2 --install;
+        helm upgrade -f $POSTGRES_CONF_FILE postgresql bitnami/postgresql --namespace $NAMESPACE --create-namespace --version 11.8.2 --install;
     else
         error_message "Unexpected DATABASE_PROVIDER value: $DATABASE_PROVIDER";
     fi
