@@ -12,6 +12,7 @@
 ## Preinstallation actions
 ### Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
 ```bash
+echo "RCC password" | base64
 export DOCKER_PASSWORD=[RCC password encripted base64]
 ```
 ### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
