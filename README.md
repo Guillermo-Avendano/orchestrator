@@ -37,7 +37,7 @@ IMAGE_AGENT_VERSION=4.3.1.58
 AEO_URL = "aeo.rocketsoftware.com"
 ```
 
-###  in "./env.sh", and add these values to /etc/hosts c:/windows/system32/drivers/etc/hosts with the IP where the custer will run, example:
+###  Add AEO_URL to /etc/hosts, or c:/windows/system32/drivers/etc/hosts with the IP where the custer is running, example:
 ```bash
 192.168.0.5     aeo.rocketsoftware.com
 ```
