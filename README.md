@@ -13,12 +13,12 @@
 ## Preinstallation actions
 
 - Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
-    alias k="kubectl"
-    alias ta="terraform apply"
-    alias ti="terraform init"
+-- alias k="kubectl"
+-- alias ta="terraform apply"
+-- alias ti="terraform init"
 
 - Define the environment variable DOCKER_PASSWORD in "$HOME/.profile"
-        export DOCKER_PASSWORD=[RCC password encripted base64]
+--  export DOCKER_PASSWORD=[RCC password encripted base64]
 
 - Check versions for scheduler, clientmgr, and agent
   ./rockcluster.sh imgls
@@ -34,10 +34,12 @@
 ## Installation sequence
 
 1; Pre-requisites
-- sudo apt install -y dos2unix
-- find . -name "*.yaml" -exec dos2unix {} \;
-- find . -name "*.sh" -exec dos2unix {} \;
-- chmod -R u+x *.sh
+```bash
+sudo apt install -y dos2unix
+find . -name "*.yaml" -exec dos2unix {} \;
+find . -name "*.sh" -exec dos2unix {} \;
+chmod -R u+x *.sh
+```
 
 2; set environment
 - source env.sh
