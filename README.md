@@ -23,7 +23,7 @@ echo "RCC password" | base64
 ```
 - Edit "$HOME/.profile" (nano $HOME/.profile), and define the variables DOCKER_USERNAME with your RCC username, and DOCKER_PASWORD with the output of previous "echo"
 ```bash
-export DOCKER_USERNAME="[RCC user]"@rs.com"
+export DOCKER_USERNAME="[RCC user]@rs.com"
 export DOCKER_PASSWORD="[RCC password encripted base64]"
 ```
 ### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
