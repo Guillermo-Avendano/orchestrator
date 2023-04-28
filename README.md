@@ -21,7 +21,7 @@ cd orchestrator
 echo "RCC password" | base64
 export DOCKER_PASSWORD=[RCC password encripted base64]
 ```
-### Define variable DOCKER_PASSWORD in ./env.sh
+### Define variable DOCKER_USER in ./env.sh
 ```bash
 DOCKER_USER="<RCC user>@rs.com"
 ```
