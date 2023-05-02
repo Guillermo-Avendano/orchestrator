@@ -124,19 +124,23 @@ cd aeo
 | ./rockcluster.sh remove | remove aeo cluster |
 | ./rockcluster.sh debug | output of kubectl get/describe of aeo's kubernetes resources |
 
-### Install aeo components (under "orchestrator" directory)
+### Install aeo
 ```bash
-# install datbase
+# orchestrator folder
+cd aeo
+# install database
 ./install_database.sh
 # install aeo
 ./install.sh
 ```
-### Remove components with the namespece associated. (under "orchestrator" directory)
+### Remove aeo 
 ```bash
+# orchestrator folder
+cd aeo
 # remove aeo
 ./remove.sh
-# remove datbase
-./install_database.sh
+# remove database
+./remove_database.sh
 ```
 ### Activate pgadmin & grafana (pre-requisite: "./rockcluster.sh pgport")
 - Start pgadmin & Grafana
@@ -158,4 +162,9 @@ server: IP Address where cluster is running , database=aeo, user=aeo, password=a
 cd tools
 ./stop.sh
 ```
-
+### Delete pgadmin & grafana
+```bash
+# orchestrator folder
+cd tools
+./destroy.sh
+```
