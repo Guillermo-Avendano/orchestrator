@@ -97,17 +97,13 @@ docker version
 # orchestrator folder
 ./rockcluster.sh create
 ```
-6; Install database
-```bash
-# orchestrator folder
-cd aeo-database
-./install.sh
-cd ..
-```
-6; Install scheduler, clientmgr, and agent
+5; Install database, scheduler, clientmgr, and agent
 ```bash
 # orchestrator folder
 cd aeo
+# install datbase
+./install_database.sh
+# install aeo
 ./install.sh
 ```
 6; Enterprise Orchestrator URL: http://aeo.rocketsoftware.com/aeo
@@ -130,17 +126,18 @@ cd aeo
 
 ### Install aeo components (under "orchestrator" directory)
 ```bash
-# orchestrator folder
-cd aeo
+# install datbase
+./install_database.sh
+# install aeo
 ./install.sh
 ```
 ### Remove components with the namespece associated. (under "orchestrator" directory)
 ```bash
-# orchestrator folder
-cd aeo
+# remove aeo
 ./remove.sh
+# remove datbase
+./install_database.sh
 ```
-
 ### Activate pgadmin & grafana (pre-requisite: "./rockcluster.sh pgport")
 - Start pgadmin & Grafana
 ```bash
