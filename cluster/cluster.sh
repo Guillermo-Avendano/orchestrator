@@ -41,6 +41,9 @@ create_cluster(){
     # Install ingress
     kubectl create namespace ingress-nginx
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.3/deploy/static/provider/cloud/deploy.yaml -n ingress-nginx
+    
+    # V2: kubectl apply -f $kube_dir/cluster/nginx-ingress-controller.yaml -n kube-system
+
     info_progress_header "Verifying $KUBE_CLUSTER_NAME cluster..."
 
     POD_NAMES=("ingress-nginx-controller")
@@ -54,7 +57,8 @@ create_cluster(){
     # Inicializa una variable para contar el número de veces que se ha verificado el pod
     CHECKS=0  
         # Loop hasta que el pod esté en estado "Running"
-        while [[ $(kubectl -n ingress-nginx get pods | grep $POD_NAME | awk '{print $3}') != "Running" ]]
+        # V2: while [[ $(kubectl -n kube-system pods | grep $POD_NAME | awk '{print $3}') != "Runnng" ]]
+        while [[ $(kubectl -n ingress-nginx get pods | grep $POD_NAME | awk '{print $3}') != "Running" ]]    
         do
             # Incrementa el contador de verificación
             ((CHECKS++))         
