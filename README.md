@@ -125,7 +125,7 @@ cd aeo
 | ./rockcluster.sh debug | kubectl get/describe output of aeo's kubernetes resources |
 
 
-![AEO k3d commands](common/aeo_k3d.png)
+![AEO k3d commands](common/aeo_k3d_stack.png)
 
 ### Install aeo
 ```bash
