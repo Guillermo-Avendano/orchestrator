@@ -122,7 +122,7 @@ cd aeo
 | ./rockcluster.sh list | list clusters |
 | ./rockcluster.sh create | create aeo cluster |
 | ./rockcluster.sh remove | remove aeo cluster |
-| ./rockcluster.sh debug | output of kubectl get/describe of aeo's kubernetes resources |
+| ./rockcluster.sh debug | kubectl get/describe output of aeo's kubernetes resources |
 
 
 ![AEO k3d commands](common/aeo_k3d.png)
