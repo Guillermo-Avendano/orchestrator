@@ -14,7 +14,7 @@ NAMESPACE=rocket
 PRODUCT="Enterprise Orchestrator"
 
 export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml    # cluster/cluster.sh
-
+chmod o-r,g-r $kube_dir/cluster/.cluster-config.yaml
 DOCKER_USER=$DOCKER_USERNAME                        # cluster/local_registry.sh  
 DOCKER_PASS=`echo $DOCKER_PASSWORD | base64 -d`     # $HOME/.profile -> DOCKER_PASSWORD encoded base64
 
