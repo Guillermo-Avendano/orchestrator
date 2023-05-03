@@ -124,6 +124,9 @@ cd aeo
 | ./rockcluster.sh remove | remove aeo cluster |
 | ./rockcluster.sh debug | output of kubectl get/describe of aeo's kubernetes resources |
 
+
+![AEO k3d commands](common/aeo_k3d.png)
+
 ### Install aeo
 ```bash
 # orchestrator folder
