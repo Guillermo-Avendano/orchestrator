@@ -79,9 +79,9 @@ chmod -R u+x *.sh
 
 2; Refresh environment variables
 ***
-export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml"
+**export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml"**
 
-It is key for interaction between commands: kubectl, helm, etc., with the cluster|
+It's key for interaction between commands: kubectl, helm, etc., with the cluster.
 ***
 ```bash
 source $HOME/.profile
