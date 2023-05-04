@@ -26,7 +26,7 @@ echo "RCC password" | base64
 export DOCKER_USERNAME="[RCC user]@rs.com"
 export DOCKER_PASSWORD="[RCC password encripted base64]"
 ```
-### Optional: add these lines to "$HOME/.profile" for facilitate the commnads' typing
+### Optional: add these lines to "$HOME/.profile" for facilitating the commands' typing
 ```bash
 alias k="kubectl"
 alias ta="terraform apply"
@@ -78,6 +78,9 @@ chmod -R u+x *.sh
 ```
 
 2; Refresh environment variables
+
+|** "export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml" is key for interaction between commands: kubectl, helm, etc., with the cluster**|
+
 ```bash
 source $HOME/.profile
 # orchestrator folder
@@ -97,11 +100,11 @@ docker version
 # orchestrator folder
 ./rockcluster.sh create
 ```
-5; Install database, scheduler, clientmgr, and agent
+6; Install database, scheduler, clientmgr, and agent
 ```bash
 # orchestrator folder
 cd aeo
-# install datbase
+# install database
 ./install_database.sh
 # install aeo
 ./install.sh
