@@ -1,0 +1,61 @@
+#!/bin/sh
+
+# description: start and stop the zena controller 
+# Note: this script will only work for machines running a single zenacontroller
+
+# this script should work for most every platform.  Refer to a system administrator
+# or platform documentation for the proper way to add the initialization
+
+# Adjust these variables to match your environment
+ECHO=/bin/echo 
+PS=/bin/ps
+GREP=/bin/grep
+AWK=/bin/awk
+ROOTPATH=/opt/zena
+PLATFORM=LINUX
+PORT=8130
+#end customization block
+
+pid=`$PS -ef | $GREP zenacontroller | $GREP -v grep | awk '{ print $2 }'`
+
+case $1 in
+
+'start')
+    if [ "${pid}" != "" ]; then
+	$ECHO "ASG-Zena Controller is running already with PID : ${pid}"
+    else
+	$ECHO "Starting ASG-Zena Controller"
+    	su - root -c "$ROOTPATH/bin/$PLATFORM/zenacontroller"
+	$ECHO "debug"
+    fi
+    ;;
+
+'stop')
+    # controller will respond to a SIGTERM with a normal clean shutdown
+    if [ "${pid}" != "" ]; then
+        /usr/bin/kill ${pid}
+    fi
+    ;;
+
+restart|reload)
+    $0 stop
+    $0 start
+    ;;
+
+'status')
+    if [ "${pid}" != "" ]; then
+	$ECHO "ASG-Zena Controller is running, here is the status all managed applications"
+	$ROOTPATH/bin/$PLATFORM/zenastat -p $PORT list
+    else
+	$ECHO "ASG-Zena Controller is not running"
+    fi
+
+    ;;
+
+*)
+
+    echo "usage: /etc/init.d/zena {start|stop|status|restart}"
+    ::
+
+esac
+exit
