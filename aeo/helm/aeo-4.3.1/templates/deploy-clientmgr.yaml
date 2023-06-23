@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name:  {{ .Values.clientmgr.name }} 
 spec:
-  replicas: 1
+  replicas: {{ .Values.clientmgr.replicas }} 
   selector:
     matchLabels:
       app:  {{ .Values.clientmgr.name }} 
@@ -21,6 +21,10 @@ spec:
         ports:
           - containerPort: 7980
         env:
+          - name: CURR_POD_UID
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.uid
           - name: DB_DRIVER
             value: {{ .Values.database.driver }}
           - name: DB_TYPE
@@ -39,7 +43,11 @@ spec:
             value: "7980"
         volumeMounts:
             - mountPath: /opt/aeo/data
+              subPathExpr: cluster/$(CURR_POD_UID)
               name: pvc-aeo-clientmgr
+            - mountPath: /opt/aeo/data/cluster
+              subPath: aeo_cluster
+              name: pvc-aeo-clientmgr            
       volumes:
         - name: pvc-aeo-clientmgr
           persistentVolumeClaim:

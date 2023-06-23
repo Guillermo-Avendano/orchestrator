@@ -19,7 +19,7 @@ DOCKER_USER=$DOCKER_USERNAME                        # cluster/local_registry.sh
 DOCKER_PASS=`echo $DOCKER_PASSWORD | base64 -d`     # $HOME/.profile -> DOCKER_PASSWORD encoded base64
 
 KUBE_SOURCE_REGISTRY="registry.rocketsoftware.com"  # cluster/local_registry.sh 
-KUBE_LOCALREGISTRY_NAME="mobius.localhost"        # cluster/local_registry.sh
+KUBE_LOCALREGISTRY_NAME="mobius.localhost"          # cluster/local_registry.sh
 KUBE_LOCALREGISTRY_HOST="localhost"                 # cluster/local_registry.sh 
 KUBE_LOCALREGISTRY_PORT="5000"                      # cluster/local_registry.sh 
 KUBE_IMAGE_PULL="YES"                               # cluster/cluster.sh

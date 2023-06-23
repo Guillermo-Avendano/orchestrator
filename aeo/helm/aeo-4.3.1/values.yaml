@@ -10,7 +10,7 @@ scheduler:
   nodePort:
 
 clientmgr:
-  replicas: 1
+  replicas: 2
   image: localhost:5000/aeo/clientmgr:4.3.1.61
   name: aeo-clientmgr
 
