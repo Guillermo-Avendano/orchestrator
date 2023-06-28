@@ -6,14 +6,10 @@ metadata:
     app: {{ .Values.clientmgr.name }} 
   name: {{ .Values.clientmgr.name }} 
 spec:
-  type: NodePort 
   ports:
   - name: "aeo-web"
     port: 7980
     targetPort: 7980
-    {{- if .Values.scheduler.nodePort -}}
-    nodePort: {{ .Values.scheduler.nodePort }}
-    {{- end }}
   - name: "7911"
     port: 7911
     targetPort: 7911  

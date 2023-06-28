@@ -4,18 +4,18 @@ metadata:
   annotations:
     meta.helm.sh/release-name: aeo-rocket
     meta.helm.sh/release-namespace: rocket
-  creationTimestamp: "2023-04-27T13:44:56Z"
+  creationTimestamp: "2023-06-28T13:09:48Z"
   labels:
     app: aeo-scheduler
     app.kubernetes.io/managed-by: Helm
   name: aeo-scheduler
   namespace: rocket
-  resourceVersion: "1967"
-  uid: 680a479f-c203-420a-87a3-dd365ab26957
+  resourceVersion: "909"
+  uid: dfd68912-ddb3-4379-a44d-d2d531781c44
 spec:
-  clusterIP: 10.43.190.152
+  clusterIP: 10.43.94.211
   clusterIPs:
-  - 10.43.190.152
+  - 10.43.94.211
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4

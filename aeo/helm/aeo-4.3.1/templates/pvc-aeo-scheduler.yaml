@@ -10,4 +10,16 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-aeo-scheduler-ctl-log
+spec:
+  accessModes:
+    - ReadWriteOnce
+  #storageClassName: {{ .Values.storageClassName }}
+  resources:
+    requests:
+      storage: 1Gi      
 {{- end }}      

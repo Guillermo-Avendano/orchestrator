@@ -16,6 +16,6 @@ IP:                None
 IPs:               None
 Port:              tcp-postgresql  5432/TCP
 TargetPort:        tcp-postgresql/TCP
-Endpoints:         10.42.2.18:5432
+Endpoints:         10.42.0.6:5432
 Session Affinity:  None
 Events:            <none>

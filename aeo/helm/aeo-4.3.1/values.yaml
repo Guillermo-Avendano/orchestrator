@@ -3,14 +3,13 @@
 # Declare variables to be passed into your templates.
 
 scheduler:
-  replicas: 1
+  replicas: 2
   image: localhost:5000/aeo/scheduler:4.3.1.61
   enabled: true
   name: aeo-scheduler
-  nodePort:
 
 clientmgr:
-  replicas: 2
+  replicas: 1
   image: localhost:5000/aeo/clientmgr:4.3.1.61
   name: aeo-clientmgr
 

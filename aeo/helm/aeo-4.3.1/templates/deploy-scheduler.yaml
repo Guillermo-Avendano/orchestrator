@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name:  {{ .Values.scheduler.name }} 
 spec:
-  replicas: 1
+  replicas: {{ .Values.scheduler.replicas }} 
   selector:
     matchLabels:
       app:  {{ .Values.scheduler.name }} 
@@ -21,6 +21,10 @@ spec:
         ports:
           - containerPort: 7910
         env:      
+          - name: CURR_POD_UID
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.uid        
           - name: DB_DRIVER
             value: {{ .Values.database.driver }}  
           - name: DB_TYPE
@@ -36,12 +40,25 @@ spec:
           - name: DB_PASSWORD
             value: {{ .Values.database.password }}  
           - name: PORT
-            value: "7910"
+            value: "7910"           
         volumeMounts:
             - mountPath: /opt/aeo/data
+              subPathExpr: cluster/$(CURR_POD_UID)
               name: pvc-aeo-scheduler
+            - mountPath: /opt/aeo/data/cluster
+              subPath: cluster
+              name: pvc-aeo-scheduler         
+            - mountPath: /opt/aeo/logs
+              subPathExpr: cluster/$(CURR_POD_UID)
+              name: pvc-aeo-scheduler-ctl-log
+            - mountPath: /opt/aeo/logs/cluster
+              subPath: cluster
+              name: pvc-aeo-scheduler-ctl-log        
       volumes:
         - name: pvc-aeo-scheduler
           persistentVolumeClaim:
             claimName: pvc-aeo-scheduler
+        - name: pvc-aeo-scheduler-ctl-log
+          persistentVolumeClaim:
+            claimName: pvc-aeo-scheduler-ctl-log             
 {{- end }}

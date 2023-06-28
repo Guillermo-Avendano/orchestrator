@@ -23,6 +23,8 @@ spec:
         volumeMounts:
             - mountPath: /opt/aeo/data
               name: pvc-aeo-agent-config
+            - mountPath: /opt/aeo/logs
+              name: pvc-aeo-agent-ctl-log              
             - mountPath: /opt/aeo/agent/xagent_1
               name: pvc-aeo-agent-services
             {{- if .Values.agent.additionalVolumeMounts -}} 
@@ -32,6 +34,9 @@ spec:
         - name: pvc-aeo-agent-config
           persistentVolumeClaim:
             claimName: pvc-aeo-agent-config
+        - name: pvc-aeo-agent-ctl-log
+          persistentVolumeClaim:
+            claimName: pvc-aeo-agent-ctl-log           
         - name: pvc-aeo-agent-services
           persistentVolumeClaim:
             claimName: pvc-aeo-agent-services

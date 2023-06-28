@@ -1,8 +1,8 @@
 Name:         postgresql-0
 Namespace:    rocket
 Priority:     0
-Node:         k3d-rocket-agent-1/172.22.0.5
-Start Time:   Thu, 27 Apr 2023 10:44:41 -0300
+Node:         k3d-rocket-server-0/172.21.0.3
+Start Time:   Wed, 28 Jun 2023 10:08:19 -0300
 Labels:       app.kubernetes.io/component=primary
               app.kubernetes.io/instance=postgresql
               app.kubernetes.io/managed-by=Helm
@@ -12,19 +12,19 @@ Labels:       app.kubernetes.io/component=primary
               statefulset.kubernetes.io/pod-name=postgresql-0
 Annotations:  <none>
 Status:       Running
-IP:           10.42.2.18
+IP:           10.42.0.6
 IPs:
-  IP:           10.42.2.18
+  IP:           10.42.0.6
 Controlled By:  StatefulSet/postgresql
 Containers:
   postgresql:
-    Container ID:   containerd://e299c4bbcf010aef76eaca62cb351433d3cf463955a45ccf8539e955909ed543
+    Container ID:   containerd://fb22e04a8e0082a5f6239c994e5d9e82354f7718e387ce7c7997747b3a041246
     Image:          docker.io/bitnami/postgresql:14.5.0
     Image ID:       docker.io/bitnami/postgresql@sha256:2092a1b0bed244fbfacea836da72a84bfa47a1e7b4f2b4a82dda28dc3065d6de
     Port:           5432/TCP
     Host Port:      0/TCP
     State:          Running
-      Started:      Thu, 27 Apr 2023 10:44:53 -0300
+      Started:      Wed, 28 Jun 2023 10:08:30 -0300
     Ready:          True
     Restart Count:  0
     Requests:
@@ -58,7 +58,7 @@ Containers:
       /bitnami/postgresql from data (rw)
       /dev/shm from dshm (rw)
       /docker-entrypoint-initdb.d/ from custom-init-scripts (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-2mb2z (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-5b2rw (ro)
 Conditions:
   Type              Status
   Initialized       True 
@@ -78,7 +78,7 @@ Volumes:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
     ClaimName:  postgresql-pv-claim
     ReadOnly:   false
-  kube-api-access-2mb2z:
+  kube-api-access-5b2rw:
     Type:                    Projected (a volume that contains injected data from multiple sources)
     TokenExpirationSeconds:  3607
     ConfigMapName:           kube-root-ca.crt
@@ -89,10 +89,10 @@ Node-Selectors:              <none>
 Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type    Reason     Age    From               Message
-  ----    ------     ----   ----               -------
-  Normal  Scheduled  6m34s  default-scheduler  Successfully assigned rocket/postgresql-0 to k3d-rocket-agent-1
-  Normal  Pulling    6m34s  kubelet            Pulling image "docker.io/bitnami/postgresql:14.5.0"
-  Normal  Pulled     6m23s  kubelet            Successfully pulled image "docker.io/bitnami/postgresql:14.5.0" in 10.741846769s
-  Normal  Created    6m23s  kubelet            Created container postgresql
-  Normal  Started    6m23s  kubelet            Started container postgresql
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned rocket/postgresql-0 to k3d-rocket-server-0
+  Normal  Pulling    11m   kubelet            Pulling image "docker.io/bitnami/postgresql:14.5.0"
+  Normal  Pulled     10m   kubelet            Successfully pulled image "docker.io/bitnami/postgresql:14.5.0" in 10.1800238s
+  Normal  Created    10m   kubelet            Created container postgresql
+  Normal  Started    10m   kubelet            Started container postgresql

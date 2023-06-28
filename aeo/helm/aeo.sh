@@ -17,7 +17,10 @@ install_aeo(){
     DATABASE_URL="jdbc:postgresql://$POSTGRESQL_HOST:$POSTGRESQL_PORT/$POSTGRESQL_DBNAME"
 
     replace_tag_in_file $AEO_VALUES "<scheduler_image>" $IMAGE_SCHEDULER;
+	replace_tag_in_file $AEO_VALUES "<scheduler_replicas>" $SCHEDULER_REPLICAS;
+	
     replace_tag_in_file $AEO_VALUES "<clientmgr_image>" $IMAGE_CLIENTMGR;
+    replace_tag_in_file $AEO_VALUES "<clientmgr_replicas>" $CLIENTMGR_REPLICAS;
     replace_tag_in_file $AEO_VALUES "<agent_image>" $IMAGE_AGENT;
 
     replace_tag_in_file $AEO_VALUES "<database_user>" $POSTGRESQL_USERNAME;

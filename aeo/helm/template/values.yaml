@@ -3,14 +3,13 @@
 # Declare variables to be passed into your templates.
 
 scheduler:
-  replicas: 1
+  replicas: <scheduler_replicas>
   image: <scheduler_image>
   enabled: true
   name: aeo-scheduler
-  nodePort:
 
 clientmgr:
-  replicas: 1
+  replicas: <clientmgr_replicas>
   image: <clientmgr_image>
   name: aeo-clientmgr
 

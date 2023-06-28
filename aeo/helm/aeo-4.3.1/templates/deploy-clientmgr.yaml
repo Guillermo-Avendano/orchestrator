@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name:  {{ .Values.clientmgr.name }} 
 spec:
-  replicas: {{ .Values.clientmgr.replicas }} 
+  replicas: {{ .Values.clientmgr.replicas }}  
   selector:
     matchLabels:
       app:  {{ .Values.clientmgr.name }} 
@@ -46,10 +46,19 @@ spec:
               subPathExpr: cluster/$(CURR_POD_UID)
               name: pvc-aeo-clientmgr
             - mountPath: /opt/aeo/data/cluster
-              subPath: aeo_cluster
-              name: pvc-aeo-clientmgr            
+              subPath: cluster
+              name: pvc-aeo-clientmgr         
+            - mountPath: /opt/aeo/logs
+              subPathExpr: cluster/$(CURR_POD_UID)
+              name: pvc-aeo-clientmgr-ctl-log
+            - mountPath: /opt/aeo/logs/cluster
+              subPath: cluster
+              name: pvc-aeo-clientmgr-ctl-log        
       volumes:
         - name: pvc-aeo-clientmgr
           persistentVolumeClaim:
             claimName: pvc-aeo-clientmgr
-{{- end }}            
+        - name: pvc-aeo-clientmgr-ctl-log
+          persistentVolumeClaim:
+            claimName: pvc-aeo-clientmgr-ctl-log          
+{{- end }}
