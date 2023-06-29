@@ -26,7 +26,7 @@ create_cluster(){
 
     KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT --registry-config $kube_dir/cluster/registries.yaml"
 
-    k3d cluster create $KUBE_CLUSTER_NAME -p "80:80@loadbalancer" -p "$NGINX_EXTERNAL_TLS_PORT:443@loadbalancer" --agents 2 --k3s-arg "--disable=traefik@server:0" $KUBE_CLUSTER_REGISTRY
+    k3d cluster create $KUBE_CLUSTER_NAME -p "80:80@loadbalancer" -p "30779:30779@loadbalancer" -p "$NGINX_EXTERNAL_TLS_PORT:443@loadbalancer" --agents 2 --k3s-arg "--disable=traefik@server:0" $KUBE_CLUSTER_REGISTRY
     
     #DO NOT WORK: k3d cluster create --config $kube_dir/cluster/cluster-configuration.yaml
 
@@ -72,6 +72,8 @@ create_cluster(){
             sleep $WAIT_TIME
         done
     done
+
+    helm upgrade --create-namespace -i -n portainer portainer portainer/portainer
 
     highlight_message "$KUBE_CLUSTER_NAME cluster started !"						  
 }
