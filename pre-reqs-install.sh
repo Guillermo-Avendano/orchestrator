@@ -8,7 +8,8 @@ install_docker_compose() {
 
 install_k3d() {
     echo "Installing k3d..."
-    curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | TAG=v5.4.6 bash
+    curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+  # curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | TAG=v5.4.6 bash
 }
 
 install_kubectl() {

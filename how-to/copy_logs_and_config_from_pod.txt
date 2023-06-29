@@ -1,0 +1,2 @@
+mkdir xx
+kubectl -n rocket cp aeo-scheduler-996668d49-7pxxz:/opt/aeo/data ./xx

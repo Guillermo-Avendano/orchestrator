@@ -1,0 +1,1 @@
+<CONFIG DATA_PATH="/opt/aeo/data" DB_DRIVER="org.postgresql.Driver" DB_FLAGS="0" DB_NAME="aeo" DB_PASSWORD="3X6ApGn/D3cgkTxc730BGhvV6C6A6YPfGare9QjWgdT5rkI9wCWWFRvfYk1f5PXqN" DB_SERVER="postgresql" DB_TYPE="POSTGRESQL" DB_URL="jdbc:postgresql://postgresql:5432/aeo" DB_USER="aeo" ID="aeo-scheduler_6349e2ab0e35" PERIODIC_GC="10" PORT="7910" UID="6349e2ab0e35"/>
