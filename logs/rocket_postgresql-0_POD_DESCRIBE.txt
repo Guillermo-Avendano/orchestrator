@@ -1,8 +1,8 @@
 Name:         postgresql-0
 Namespace:    rocket
 Priority:     0
-Node:         k3d-rocket-server-0/172.21.0.3
-Start Time:   Wed, 28 Jun 2023 10:08:19 -0300
+Node:         k3d-rocket-agent-0/172.19.0.4
+Start Time:   Thu, 29 Jun 2023 08:18:14 -0300
 Labels:       app.kubernetes.io/component=primary
               app.kubernetes.io/instance=postgresql
               app.kubernetes.io/managed-by=Helm
@@ -18,13 +18,13 @@ IPs:
 Controlled By:  StatefulSet/postgresql
 Containers:
   postgresql:
-    Container ID:   containerd://fb22e04a8e0082a5f6239c994e5d9e82354f7718e387ce7c7997747b3a041246
+    Container ID:   containerd://5d584fae0ea630af300a8e249a07898995eba104275208d2980892530d57af8f
     Image:          docker.io/bitnami/postgresql:14.5.0
     Image ID:       docker.io/bitnami/postgresql@sha256:2092a1b0bed244fbfacea836da72a84bfa47a1e7b4f2b4a82dda28dc3065d6de
     Port:           5432/TCP
     Host Port:      0/TCP
     State:          Running
-      Started:      Wed, 28 Jun 2023 10:08:30 -0300
+      Started:      Thu, 29 Jun 2023 08:18:24 -0300
     Ready:          True
     Restart Count:  0
     Requests:
@@ -58,7 +58,7 @@ Containers:
       /bitnami/postgresql from data (rw)
       /dev/shm from dshm (rw)
       /docker-entrypoint-initdb.d/ from custom-init-scripts (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-5b2rw (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-b4xkv (ro)
 Conditions:
   Type              Status
   Initialized       True 
@@ -78,7 +78,7 @@ Volumes:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
     ClaimName:  postgresql-pv-claim
     ReadOnly:   false
-  kube-api-access-5b2rw:
+  kube-api-access-b4xkv:
     Type:                    Projected (a volume that contains injected data from multiple sources)
     TokenExpirationSeconds:  3607
     ConfigMapName:           kube-root-ca.crt
@@ -91,8 +91,8 @@ Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists fo
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  11m   default-scheduler  Successfully assigned rocket/postgresql-0 to k3d-rocket-server-0
-  Normal  Pulling    11m   kubelet            Pulling image "docker.io/bitnami/postgresql:14.5.0"
-  Normal  Pulled     10m   kubelet            Successfully pulled image "docker.io/bitnami/postgresql:14.5.0" in 10.1800238s
-  Normal  Created    10m   kubelet            Created container postgresql
-  Normal  Started    10m   kubelet            Started container postgresql
+  Normal  Scheduled  29m   default-scheduler  Successfully assigned rocket/postgresql-0 to k3d-rocket-agent-0
+  Normal  Pulling    29m   kubelet            Pulling image "docker.io/bitnami/postgresql:14.5.0"
+  Normal  Pulled     29m   kubelet            Successfully pulled image "docker.io/bitnami/postgresql:14.5.0" in 9.9021498s
+  Normal  Created    29m   kubelet            Created container postgresql
+  Normal  Started    29m   kubelet            Started container postgresql

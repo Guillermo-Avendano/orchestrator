@@ -11,8 +11,8 @@ gen_registry_yaml(){
 }
 					  
 create_cluster(){
-    info_message "Creating registry $KUBE_LOCALREGISTRY_NAME"
 
+    info_message "Creating registry $KUBE_LOCALREGISTRY_NAME"
     registry_name=k3d-$KUBE_LOCALREGISTRY_NAME
     if k3d registry list | grep $registry_name >/dev/null; then
         echo "Deleting existing registry $registry_name"
@@ -195,4 +195,58 @@ debug_cluster(){
 
             echo "Debug files in ./$log_dir"
         done
+}
+
+
+create_folders() {
+    info_message "Creating volumes..."
+    #set up volumes CLIENTMGR
+    PVC-AEO-CLIENTMGR=`eval echo ~/${NAMESPACE}_data/PV-AEO-CLIENTMGR`
+    if [ ! -d $PVC-AEO-CLIENTMGR]; then
+        mkdir -p $PVC-AEO-CLIENTMGR;
+        chmod -R 777 $PVC-AEO-CLIENTMGR;  
+    fi
+    PVC-AEO-CLIENTMGR-CTL-LOG=`eval echo ~/${NAMESPACE}_data/PV-AEO-CLIENTMGR-CTL-LOG`
+    if [ ! -d $PVC-AEO-CLIENTMGR-CTL-LOG]; then
+        mkdir -p $PVC-AEO-CLIENTMGR-CTL-LOG;
+        chmod -R 777 $PVC-AEO-CLIENTMGR-CTL-LOG;  
+    fi
+    #set up volumes SCHEDULER
+    PVC-AEO-SCHEDULER=`eval echo ~/${NAMESPACE}_data/PV-AEO-SCHEDULER`
+    if [ ! -d $PVC-AEO-SCHEDULER]; then
+        mkdir -p $PVC-AEO-SCHEDULER;
+        chmod -R 777 $PVC-AEO-SCHEDULER;  
+    fi
+    PVC-AEO-SCHEDULER-CTL-LOG=`eval echo ~/${NAMESPACE}_data/PV-AEO-SCHEDULER-CTL-LOG`
+    if [ ! -d $PVC-AEO-SCHEDULER-CTL-LOG]; then
+        mkdir -p $PVC-AEO-SCHEDULER-CTL-LOG;
+        chmod -R 777 $PVC-AEO-SCHEDULER-CTL-LOG;  
+    fi
+    #set up volumes AGENT
+    PVC-AEO-AGENT=`eval echo ~/${NAMESPACE}_data/PV-AEO-AGENT`
+    if [ ! -d $PVC-AEO-AGENT]; then
+        mkdir -p $PVC-AEO-AGENT;
+        chmod -R 777 $PVC-AEO-AGENT;  
+    fi
+    PVC-AEO-AGENT-CTL-LOG=`eval echo ~/${NAMESPACE}_data/PV-AEO-AGENT-CTL-LOG`
+    if [ ! -d $PVC-AEO-AGENT-CTL-LOG]; then
+        mkdir -p $PVC-AEO-AGENT-CTL-LOG;
+        chmod -R 777 $PVC-AEO-AGENT-CTL-LOG;  
+    fi
+    PVC-AEO-AGENT-SERVICES=`eval echo ~/${NAMESPACE}_data/PV-AEO-AGENT-SERVICES`
+    if [ ! -d $PVC-AEO-AGENT-SERVICES]; then
+        mkdir -p $PVC-AEO-AGENT-SERVICES;
+        chmod -R 777 $PVC-AEO-AGENT-SERVICES;  
+    fi
+
+    COMMON_VOLUME=`eval echo ~/${NAMESPACE}_data/common`
+    if [ ! -d $COMMON_VOLUME ]; then
+        mkdir -p $COMMON_VOLUME;
+        chmod -R 777 $COMMON_VOLUME;
+    fi
+
+    #set env
+    # extra args can be used to add other volume mounts or other arguments
+    VOLUME_MAPPING="--volume ${PVC-AEO-CLIENTMGR}:${PVC-AEO-CLIENTMGR} --volume ${PVC-AEO-CLIENTMGR-CTL-LOG}:${PVC-AEO-CLIENTMGR-CTL-LOG} --volume ${PVC-AEO-SCHEDULER}:${PVC-AEO-SCHEDULER} --volume ${PVC-AEO-SCHEDULER-CTL-LOG}:${PVC-AEO-SCHEDULER-CTL-LOG} --volume ${PVC-AEO-AGENT}:${PVC-AEO-AGENT} --volume ${PVC-AEO-AGENT-CTL-LOG}:${PVC-AEO-AGENT-CTL-LOG} --volume ${PVC-AEO-AGENT-SERVICES}:${PVC-AEO-AGENT-SERVICES} --volume  $COMMON_VOLUME:/var/lib/rancher/k3s/storage@all"
+
 }

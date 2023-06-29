@@ -8,10 +8,10 @@ Selector:          app=aeo-scheduler
 Type:              ClusterIP
 IP Family Policy:  SingleStack
 IP Families:       IPv4
-IP:                10.43.94.211
-IPs:               10.43.94.211
+IP:                10.43.176.114
+IPs:               10.43.176.114
 Port:              7910  7910/TCP
 TargetPort:        7910/TCP
-Endpoints:         10.42.2.7:7910
+Endpoints:         10.42.2.19:7910,10.42.2.20:7910
 Session Affinity:  None
 Events:            <none>

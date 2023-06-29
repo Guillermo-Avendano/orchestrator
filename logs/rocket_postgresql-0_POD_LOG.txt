@@ -1,36 +1,180 @@
-[38;5;6mpostgresql [38;5;5m13:08:30.25 [0m
-[38;5;6mpostgresql [38;5;5m13:08:30.25 [0m[1mWelcome to the Bitnami postgresql container[0m
-[38;5;6mpostgresql [38;5;5m13:08:30.25 [0mSubscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
-[38;5;6mpostgresql [38;5;5m13:08:30.25 [0mSubmit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
-[38;5;6mpostgresql [38;5;5m13:08:30.25 [0m
-[38;5;6mpostgresql [38;5;5m13:08:30.27 [0m[38;5;2mINFO [0m ==> ** Starting PostgreSQL setup **
-[38;5;6mpostgresql [38;5;5m13:08:30.29 [0m[38;5;2mINFO [0m ==> Validating settings in POSTGRESQL_* env vars..
-[38;5;6mpostgresql [38;5;5m13:08:30.29 [0m[38;5;2mINFO [0m ==> Loading custom pre-init scripts...
-[38;5;6mpostgresql [38;5;5m13:08:30.30 [0m[38;5;2mINFO [0m ==> Initializing PostgreSQL database...
-[38;5;6mpostgresql [38;5;5m13:08:30.31 [0m[38;5;2mINFO [0m ==> pg_hba.conf file not detected. Generating it...
-[38;5;6mpostgresql [38;5;5m13:08:30.32 [0m[38;5;2mINFO [0m ==> Generating local authentication configuration
-[38;5;6mpostgresql [38;5;5m13:08:31.17 [0m[38;5;2mINFO [0m ==> Starting PostgreSQL in background...
-[38;5;6mpostgresql [38;5;5m13:08:31.30 [0m[38;5;2mINFO [0m ==> Changing password of postgres
-[38;5;6mpostgresql [38;5;5m13:08:31.31 [0m[38;5;2mINFO [0m ==> Creating user aeo
-[38;5;6mpostgresql [38;5;5m13:08:31.33 [0m[38;5;2mINFO [0m ==> Granting access to "aeo" to the database "postgres"
-[38;5;6mpostgresql [38;5;5m13:08:31.36 [0m[38;5;2mINFO [0m ==> Setting ownership for the 'public' schema database "postgres" to "aeo"
-[38;5;6mpostgresql [38;5;5m13:08:31.38 [0m[38;5;2mINFO [0m ==> Configuring replication parameters
-[38;5;6mpostgresql [38;5;5m13:08:31.42 [0m[38;5;2mINFO [0m ==> Configuring synchronous_replication
-[38;5;6mpostgresql [38;5;5m13:08:31.42 [0m[38;5;2mINFO [0m ==> Configuring fsync
-[38;5;6mpostgresql [38;5;5m13:08:31.47 [0m[38;5;2mINFO [0m ==> Loading custom scripts...
-[38;5;6mpostgresql [38;5;5m13:08:31.47 [0m[38;5;2mINFO [0m ==> Loading user's custom files from /docker-entrypoint-initdb.d ...
-[38;5;6mpostgresql [38;5;5m13:08:31.47 [0m[38;5;2mINFO [0m ==> Starting PostgreSQL in background...
-[38;5;6mpostgresql [38;5;5m13:08:31.88 [0m[38;5;2mINFO [0m ==> Enabling remote connections
-[38;5;6mpostgresql [38;5;5m13:08:31.89 [0m[38;5;2mINFO [0m ==> Stopping PostgreSQL...
+[38;5;6mpostgresql [38;5;5m11:18:24.77 [0m
+[38;5;6mpostgresql [38;5;5m11:18:24.77 [0m[1mWelcome to the Bitnami postgresql container[0m
+[38;5;6mpostgresql [38;5;5m11:18:24.77 [0mSubscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
+[38;5;6mpostgresql [38;5;5m11:18:24.78 [0mSubmit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
+[38;5;6mpostgresql [38;5;5m11:18:24.78 [0m
+[38;5;6mpostgresql [38;5;5m11:18:24.79 [0m[38;5;2mINFO [0m ==> ** Starting PostgreSQL setup **
+[38;5;6mpostgresql [38;5;5m11:18:24.82 [0m[38;5;2mINFO [0m ==> Validating settings in POSTGRESQL_* env vars..
+[38;5;6mpostgresql [38;5;5m11:18:24.83 [0m[38;5;2mINFO [0m ==> Loading custom pre-init scripts...
+[38;5;6mpostgresql [38;5;5m11:18:24.84 [0m[38;5;2mINFO [0m ==> Initializing PostgreSQL database...
+[38;5;6mpostgresql [38;5;5m11:18:24.85 [0m[38;5;2mINFO [0m ==> pg_hba.conf file not detected. Generating it...
+[38;5;6mpostgresql [38;5;5m11:18:24.85 [0m[38;5;2mINFO [0m ==> Generating local authentication configuration
+[38;5;6mpostgresql [38;5;5m11:18:25.93 [0m[38;5;2mINFO [0m ==> Starting PostgreSQL in background...
+[38;5;6mpostgresql [38;5;5m11:18:26.06 [0m[38;5;2mINFO [0m ==> Changing password of postgres
+[38;5;6mpostgresql [38;5;5m11:18:26.09 [0m[38;5;2mINFO [0m ==> Creating user aeo
+[38;5;6mpostgresql [38;5;5m11:18:26.12 [0m[38;5;2mINFO [0m ==> Granting access to "aeo" to the database "postgres"
+[38;5;6mpostgresql [38;5;5m11:18:26.16 [0m[38;5;2mINFO [0m ==> Setting ownership for the 'public' schema database "postgres" to "aeo"
+[38;5;6mpostgresql [38;5;5m11:18:26.18 [0m[38;5;2mINFO [0m ==> Configuring replication parameters
+[38;5;6mpostgresql [38;5;5m11:18:26.21 [0m[38;5;2mINFO [0m ==> Configuring synchronous_replication
+[38;5;6mpostgresql [38;5;5m11:18:26.21 [0m[38;5;2mINFO [0m ==> Configuring fsync
+[38;5;6mpostgresql [38;5;5m11:18:26.25 [0m[38;5;2mINFO [0m ==> Loading custom scripts...
+[38;5;6mpostgresql [38;5;5m11:18:26.26 [0m[38;5;2mINFO [0m ==> Loading user's custom files from /docker-entrypoint-initdb.d ...
+[38;5;6mpostgresql [38;5;5m11:18:26.26 [0m[38;5;2mINFO [0m ==> Starting PostgreSQL in background...
+[38;5;6mpostgresql [38;5;5m11:18:27.15 [0m[38;5;2mINFO [0m ==> Enabling remote connections
+[38;5;6mpostgresql [38;5;5m11:18:27.16 [0m[38;5;2mINFO [0m ==> Stopping PostgreSQL...
 waiting for server to shut down.... done
 server stopped
-[38;5;6mpostgresql [38;5;5m13:08:32.00 [0m[38;5;2mINFO [0m ==> ** PostgreSQL setup finished! **
 
-[38;5;6mpostgresql [38;5;5m13:08:32.01 [0m[38;5;2mINFO [0m ==> ** Starting PostgreSQL **
-2023-06-28 13:08:32.033 GMT [1] LOG:  pgaudit extension initialized
-2023-06-28 13:08:32.039 GMT [1] LOG:  starting PostgreSQL 14.5 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
-2023-06-28 13:08:32.039 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-2023-06-28 13:08:32.039 GMT [1] LOG:  listening on IPv6 address "::", port 5432
-2023-06-28 13:08:32.044 GMT [1] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
-2023-06-28 13:08:32.049 GMT [164] LOG:  database system was shut down at 2023-06-28 13:08:31 GMT
-2023-06-28 13:08:32.055 GMT [1] LOG:  database system is ready to accept connections
+[38;5;6mpostgresql [38;5;5m11:18:27.27 [0m[38;5;2mINFO [0m ==> ** PostgreSQL setup finished! **
+[38;5;6mpostgresql [38;5;5m11:18:27.29 [0m[38;5;2mINFO [0m ==> ** Starting PostgreSQL **
+2023-06-29 11:18:27.314 GMT [1] LOG:  pgaudit extension initialized
+2023-06-29 11:18:27.318 GMT [1] LOG:  starting PostgreSQL 14.5 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+2023-06-29 11:18:27.319 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2023-06-29 11:18:27.319 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2023-06-29 11:18:27.323 GMT [1] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-06-29 11:18:27.328 GMT [164] LOG:  database system was shut down at 2023-06-29 11:18:27 GMT
+2023-06-29 11:18:27.335 GMT [1] LOG:  database system is ready to accept connections
+2023-06-29 11:20:27.415 GMT [334] ERROR:  relation "process_logs_20230701" already exists
+2023-06-29 11:20:27.415 GMT [334] STATEMENT:  CREATE TABLE process_logs_20230701 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.435 GMT [334] ERROR:  multiple primary keys for table "process_logs_20230701" are not allowed
+2023-06-29 11:20:27.435 GMT [334] STATEMENT:  ALTER TABLE process_logs_20230701 ADD CONSTRAINT PK_process_logs_20230701 PRIMARY KEY(id)
+2023-06-29 11:20:27.448 GMT [334] ERROR:  relation "ix_process_logs_20230701_1" already exists
+2023-06-29 11:20:27.448 GMT [334] STATEMENT:  create index IX_process_logs_20230701_1 on process_logs_20230701 (sourceid, id asc)
+2023-06-29 11:20:27.451 GMT [334] ERROR:  relation "ix_process_logs_20230701_2" already exists
+2023-06-29 11:20:27.451 GMT [334] STATEMENT:  create index IX_process_logs_20230701_2 on process_logs_20230701 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:27.463 GMT [334] ERROR:  relation "process_logs_20230801" already exists
+2023-06-29 11:20:27.463 GMT [334] STATEMENT:  CREATE TABLE process_logs_20230801 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.467 GMT [334] ERROR:  multiple primary keys for table "process_logs_20230801" are not allowed
+2023-06-29 11:20:27.467 GMT [334] STATEMENT:  ALTER TABLE process_logs_20230801 ADD CONSTRAINT PK_process_logs_20230801 PRIMARY KEY(id)
+2023-06-29 11:20:27.490 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.490 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20230801_1, 2200) already exists.
+2023-06-29 11:20:27.490 GMT [334] STATEMENT:  create index IX_process_logs_20230801_1 on process_logs_20230801 (sourceid, id asc)
+2023-06-29 11:20:27.527 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.527 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20230801_2, 2200) already exists.
+2023-06-29 11:20:27.527 GMT [334] STATEMENT:  create index IX_process_logs_20230801_2 on process_logs_20230801 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:27.557 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.557 GMT [334] DETAIL:  Key (relname, relnamespace)=(process_logs_20230901_id_seq, 2200) already exists.
+2023-06-29 11:20:27.557 GMT [334] STATEMENT:  CREATE TABLE process_logs_20230901 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.577 GMT [334] ERROR:  multiple primary keys for table "process_logs_20230901" are not allowed
+2023-06-29 11:20:27.577 GMT [334] STATEMENT:  ALTER TABLE process_logs_20230901 ADD CONSTRAINT PK_process_logs_20230901 PRIMARY KEY(id)
+2023-06-29 11:20:27.639 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.639 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20230901_1, 2200) already exists.
+2023-06-29 11:20:27.639 GMT [334] STATEMENT:  create index IX_process_logs_20230901_1 on process_logs_20230901 (sourceid, id asc)
+2023-06-29 11:20:27.674 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.674 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20230901_2, 2200) already exists.
+2023-06-29 11:20:27.674 GMT [334] STATEMENT:  create index IX_process_logs_20230901_2 on process_logs_20230901 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:27.733 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.733 GMT [333] DETAIL:  Key (relname, relnamespace)=(process_logs_20231001_id_seq, 2200) already exists.
+2023-06-29 11:20:27.733 GMT [333] STATEMENT:  CREATE TABLE process_logs_20231001 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.751 GMT [333] ERROR:  multiple primary keys for table "process_logs_20231001" are not allowed
+2023-06-29 11:20:27.751 GMT [333] STATEMENT:  ALTER TABLE process_logs_20231001 ADD CONSTRAINT PK_process_logs_20231001 PRIMARY KEY(id)
+2023-06-29 11:20:27.770 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.770 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20231001_1, 2200) already exists.
+2023-06-29 11:20:27.770 GMT [333] STATEMENT:  create index IX_process_logs_20231001_1 on process_logs_20231001 (sourceid, id asc)
+2023-06-29 11:20:27.810 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.810 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20231001_2, 2200) already exists.
+2023-06-29 11:20:27.810 GMT [333] STATEMENT:  create index IX_process_logs_20231001_2 on process_logs_20231001 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:27.844 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.844 GMT [333] DETAIL:  Key (relname, relnamespace)=(process_logs_20231101_id_seq, 2200) already exists.
+2023-06-29 11:20:27.844 GMT [333] STATEMENT:  CREATE TABLE process_logs_20231101 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.862 GMT [334] ERROR:  multiple primary keys for table "process_logs_20231101" are not allowed
+2023-06-29 11:20:27.862 GMT [334] STATEMENT:  ALTER TABLE process_logs_20231101 ADD CONSTRAINT PK_process_logs_20231101 PRIMARY KEY(id)
+2023-06-29 11:20:27.875 GMT [334] ERROR:  relation "ix_process_logs_20231101_1" already exists
+2023-06-29 11:20:27.875 GMT [334] STATEMENT:  create index IX_process_logs_20231101_1 on process_logs_20231101 (sourceid, id asc)
+2023-06-29 11:20:27.900 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.900 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20231101_2, 2200) already exists.
+2023-06-29 11:20:27.900 GMT [334] STATEMENT:  create index IX_process_logs_20231101_2 on process_logs_20231101 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:27.925 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.925 GMT [334] DETAIL:  Key (relname, relnamespace)=(process_logs_20231201_id_seq, 2200) already exists.
+2023-06-29 11:20:27.925 GMT [334] STATEMENT:  CREATE TABLE process_logs_20231201 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.942 GMT [333] ERROR:  multiple primary keys for table "process_logs_20231201" are not allowed
+2023-06-29 11:20:27.942 GMT [333] STATEMENT:  ALTER TABLE process_logs_20231201 ADD CONSTRAINT PK_process_logs_20231201 PRIMARY KEY(id)
+2023-06-29 11:20:27.956 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.956 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20231201_1, 2200) already exists.
+2023-06-29 11:20:27.956 GMT [333] STATEMENT:  create index IX_process_logs_20231201_1 on process_logs_20231201 (sourceid, id asc)
+2023-06-29 11:20:27.966 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.966 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20231201_2, 2200) already exists.
+2023-06-29 11:20:27.966 GMT [333] STATEMENT:  create index IX_process_logs_20231201_2 on process_logs_20231201 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:27.985 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:27.985 GMT [334] DETAIL:  Key (relname, relnamespace)=(process_logs_20240101_id_seq, 2200) already exists.
+2023-06-29 11:20:27.985 GMT [334] STATEMENT:  CREATE TABLE process_logs_20240101 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:27.995 GMT [334] ERROR:  multiple primary keys for table "process_logs_20240101" are not allowed
+2023-06-29 11:20:27.995 GMT [334] STATEMENT:  ALTER TABLE process_logs_20240101 ADD CONSTRAINT PK_process_logs_20240101 PRIMARY KEY(id)
+2023-06-29 11:20:28.005 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.005 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240101_1, 2200) already exists.
+2023-06-29 11:20:28.005 GMT [334] STATEMENT:  create index IX_process_logs_20240101_1 on process_logs_20240101 (sourceid, id asc)
+2023-06-29 11:20:28.011 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.011 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240101_2, 2200) already exists.
+2023-06-29 11:20:28.011 GMT [334] STATEMENT:  create index IX_process_logs_20240101_2 on process_logs_20240101 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:28.025 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.025 GMT [334] DETAIL:  Key (relname, relnamespace)=(process_logs_20240201_id_seq, 2200) already exists.
+2023-06-29 11:20:28.025 GMT [334] STATEMENT:  CREATE TABLE process_logs_20240201 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:28.043 GMT [334] ERROR:  multiple primary keys for table "process_logs_20240201" are not allowed
+2023-06-29 11:20:28.043 GMT [334] STATEMENT:  ALTER TABLE process_logs_20240201 ADD CONSTRAINT PK_process_logs_20240201 PRIMARY KEY(id)
+2023-06-29 11:20:28.068 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.068 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240201_1, 2200) already exists.
+2023-06-29 11:20:28.068 GMT [334] STATEMENT:  create index IX_process_logs_20240201_1 on process_logs_20240201 (sourceid, id asc)
+2023-06-29 11:20:28.081 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.081 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240201_2, 2200) already exists.
+2023-06-29 11:20:28.081 GMT [334] STATEMENT:  create index IX_process_logs_20240201_2 on process_logs_20240201 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:28.100 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.100 GMT [334] DETAIL:  Key (relname, relnamespace)=(process_logs_20240301_id_seq, 2200) already exists.
+2023-06-29 11:20:28.100 GMT [334] STATEMENT:  CREATE TABLE process_logs_20240301 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:28.110 GMT [334] ERROR:  multiple primary keys for table "process_logs_20240301" are not allowed
+2023-06-29 11:20:28.110 GMT [334] STATEMENT:  ALTER TABLE process_logs_20240301 ADD CONSTRAINT PK_process_logs_20240301 PRIMARY KEY(id)
+2023-06-29 11:20:28.116 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.116 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240301_1, 2200) already exists.
+2023-06-29 11:20:28.116 GMT [334] STATEMENT:  create index IX_process_logs_20240301_1 on process_logs_20240301 (sourceid, id asc)
+2023-06-29 11:20:28.121 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.121 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240301_2, 2200) already exists.
+2023-06-29 11:20:28.121 GMT [334] STATEMENT:  create index IX_process_logs_20240301_2 on process_logs_20240301 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:28.134 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.134 GMT [334] DETAIL:  Key (relname, relnamespace)=(process_logs_20240401_id_seq, 2200) already exists.
+2023-06-29 11:20:28.134 GMT [334] STATEMENT:  CREATE TABLE process_logs_20240401 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:28.140 GMT [334] ERROR:  multiple primary keys for table "process_logs_20240401" are not allowed
+2023-06-29 11:20:28.140 GMT [334] STATEMENT:  ALTER TABLE process_logs_20240401 ADD CONSTRAINT PK_process_logs_20240401 PRIMARY KEY(id)
+2023-06-29 11:20:28.154 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.154 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240401_1, 2200) already exists.
+2023-06-29 11:20:28.154 GMT [334] STATEMENT:  create index IX_process_logs_20240401_1 on process_logs_20240401 (sourceid, id asc)
+2023-06-29 11:20:28.161 GMT [334] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.161 GMT [334] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240401_2, 2200) already exists.
+2023-06-29 11:20:28.161 GMT [334] STATEMENT:  create index IX_process_logs_20240401_2 on process_logs_20240401 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:28.173 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.173 GMT [333] DETAIL:  Key (relname, relnamespace)=(process_logs_20240501_id_seq, 2200) already exists.
+2023-06-29 11:20:28.173 GMT [333] STATEMENT:  CREATE TABLE process_logs_20240501 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:28.181 GMT [333] ERROR:  multiple primary keys for table "process_logs_20240501" are not allowed
+2023-06-29 11:20:28.181 GMT [333] STATEMENT:  ALTER TABLE process_logs_20240501 ADD CONSTRAINT PK_process_logs_20240501 PRIMARY KEY(id)
+2023-06-29 11:20:28.199 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.199 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240501_1, 2200) already exists.
+2023-06-29 11:20:28.199 GMT [333] STATEMENT:  create index IX_process_logs_20240501_1 on process_logs_20240501 (sourceid, id asc)
+2023-06-29 11:20:28.237 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.237 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240501_2, 2200) already exists.
+2023-06-29 11:20:28.237 GMT [333] STATEMENT:  create index IX_process_logs_20240501_2 on process_logs_20240501 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:28.248 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.248 GMT [333] DETAIL:  Key (relname, relnamespace)=(process_logs_20240601_id_seq, 2200) already exists.
+2023-06-29 11:20:28.248 GMT [333] STATEMENT:  CREATE TABLE process_logs_20240601 ( id int GENERATED BY DEFAULT AS IDENTITY NOT NULL, loglevel int NOT NULL, logtype int NOT NULL, subtype int NULL, sourceid int NOT NULL, sourcesubid int NULL, source char (12)  NULL ,created timestamp NOT NULL, purge_date timestamp NULL, details text  NULL)
+2023-06-29 11:20:28.254 GMT [333] ERROR:  multiple primary keys for table "process_logs_20240601" are not allowed
+2023-06-29 11:20:28.254 GMT [333] STATEMENT:  ALTER TABLE process_logs_20240601 ADD CONSTRAINT PK_process_logs_20240601 PRIMARY KEY(id)
+2023-06-29 11:20:28.270 GMT [333] ERROR:  duplicate key value violates unique constraint "pg_class_relname_nsp_index"
+2023-06-29 11:20:28.270 GMT [333] DETAIL:  Key (relname, relnamespace)=(ix_process_logs_20240601_1, 2200) already exists.
+2023-06-29 11:20:28.270 GMT [333] STATEMENT:  create index IX_process_logs_20240601_1 on process_logs_20240601 (sourceid, id asc)
+2023-06-29 11:20:28.272 GMT [333] ERROR:  relation "ix_process_logs_20240601_2" already exists
+2023-06-29 11:20:28.272 GMT [333] STATEMENT:  create index IX_process_logs_20240601_2 on process_logs_20240601 (sourceid, sourcesubid, id asc)
+2023-06-29 11:20:28.341 GMT [333] ERROR:  duplicate key value violates unique constraint "pk_values"
+2023-06-29 11:20:28.341 GMT [333] DETAIL:  Key (id)=(14) already exists.
+2023-06-29 11:20:28.341 GMT [333] STATEMENT:  insert into settings (id, modified, details) values($1, $2, $3)
+2023-06-29 11:20:28.544 GMT [333] ERROR:  duplicate key value violates unique constraint "pk_values"
+2023-06-29 11:20:28.544 GMT [333] DETAIL:  Key (id)=(14) already exists.
+2023-06-29 11:20:28.544 GMT [333] STATEMENT:  insert into settings (id, modified, details) values($1, $2, $3)
+2023-06-29 11:20:28.746 GMT [333] ERROR:  duplicate key value violates unique constraint "pk_values"
+2023-06-29 11:20:28.746 GMT [333] DETAIL:  Key (id)=(14) already exists.
+2023-06-29 11:20:28.746 GMT [333] STATEMENT:  insert into settings (id, modified, details) values($1, $2, $3)
+2023-06-29 11:20:28.947 GMT [333] ERROR:  duplicate key value violates unique constraint "pk_values"
+2023-06-29 11:20:28.947 GMT [333] DETAIL:  Key (id)=(14) already exists.
+2023-06-29 11:20:28.947 GMT [333] STATEMENT:  insert into settings (id, modified, details) values($1, $2, $3)
+2023-06-29 11:20:29.148 GMT [333] ERROR:  duplicate key value violates unique constraint "pk_values"
+2023-06-29 11:20:29.148 GMT [333] DETAIL:  Key (id)=(14) already exists.
+2023-06-29 11:20:29.148 GMT [333] STATEMENT:  insert into settings (id, modified, details) values($1, $2, $3)
+2023-06-29 11:20:29.350 GMT [333] ERROR:  duplicate key value violates unique constraint "pk_values"
+2023-06-29 11:20:29.350 GMT [333] DETAIL:  Key (id)=(14) already exists.
+2023-06-29 11:20:29.350 GMT [333] STATEMENT:  insert into settings (id, modified, details) values($1, $2, $3)

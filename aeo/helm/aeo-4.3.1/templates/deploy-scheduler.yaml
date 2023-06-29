@@ -20,6 +20,14 @@ spec:
         imagePullPolicy: IfNotPresent        
         ports:
           - containerPort: 7910
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - /opt/aeo/bin/LINUX64/compstat list | grep -q "running"
+          initialDelaySeconds: 15
+          periodSeconds: 30          
         env:      
           - name: CURR_POD_UID
             valueFrom:

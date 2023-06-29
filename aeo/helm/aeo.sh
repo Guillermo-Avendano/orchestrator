@@ -36,41 +36,36 @@ install_aeo(){
     helm upgrade -f $AEO_VALUES aeo-$NAMESPACE helm/aeo-4.3.1 --namespace $NAMESPACE --create-namespace --install --wait;
 }
 
-wait_for_aeo_ready(){
-    # Define los nombres de los pods que se deben verificar
-    POD_NAMES=("agent" "scheduler" "clientmgr")
+get_total_pods() {
+  kubectl get pod -n "$NAMESPACE" --no-headers | wc -l | awk '{print $1}'
+}
 
-    # Define la cantidad de veces que se verificarán los pods
-    NUM_CHECKS=10
-    # Define la cantidad de tiempo que se esperará entre cada verificación (en segundos)
-    WAIT_TIME=10
-    # Loop sobre los nombres de los pods
-    for POD_NAME in "${POD_NAMES[@]}"
-    do
-    # Inicializa una variable para contar el número de veces que se ha verificado el pod
-    CHECKS=0  
-        # Loop hasta que el pod esté en estado "Running"
-        while [[ $(kubectl -n $NAMESPACE get pods | grep $POD_NAME | awk '{print $3}') != "Running" ]]
-        do
-            # Incrementa el contador de verificación
-            ((CHECKS++))         
-            # Verifica si se ha alcanzado el número máximo de verificaciones
-            if [[ $CHECKS -eq $NUM_CHECKS ]]; then
-                error_message "ERROR: Cannot verify pod $POD_NAME after $NUM_CHECKS attempts"
-                exit 1
-            fi           
-            # Espera antes de la siguiente verificación
-            info_progress "..."
-            sleep $WAIT_TIME
-        done
-    done
+get_running_pods() {
+  kubectl get pod -n "$NAMESPACE" --field-selector=status.phase=Running --no-headers | wc -l | awk '{print $1}'
+}
 
+wait_for_aeo_ready() {
+  retries=0
+  max_retries=60  # Puedes ajustar el número máximo de reintentos según tus necesidades
+  
+  until [ "$(get_running_pods)" -eq "$(get_total_pods)" ] || [ "$retries" -ge "$max_retries" ]; do
+    retries=$((retries+1))
+    info_message "Waiting for all pods to be in state 'Running'... (try $retries of $max_retries)"
+    sleep 10
+  done
+  
+  if [ "$(get_running_pods)" -eq "$(get_total_pods)" ]; then
     highlight_message "kubectl -n $NAMESPACE get pods"
     kubectl -n $NAMESPACE get pods
 
     highlight_message "kubectl -n $NAMESPACE get ingress"
     kubectl -n $NAMESPACE get ingress
+  else
+    echo "Some pods in namespace '$NAMESPACE' are not in state 'Running' after $max_retries attempts."
+    exit 1
+  fi
 }
+
 
 uninstall_aeo(){
     helm uninstall aeo-$NAMESPACE --namespace $NAMESPACE

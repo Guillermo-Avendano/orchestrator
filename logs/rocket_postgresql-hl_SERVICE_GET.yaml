@@ -4,7 +4,7 @@ metadata:
   annotations:
     meta.helm.sh/release-name: postgresql
     meta.helm.sh/release-namespace: rocket
-  creationTimestamp: "2023-06-28T13:08:09Z"
+  creationTimestamp: "2023-06-29T11:18:04Z"
   labels:
     app.kubernetes.io/component: primary
     app.kubernetes.io/instance: postgresql
@@ -14,8 +14,8 @@ metadata:
     service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
   name: postgresql-hl
   namespace: rocket
-  resourceVersion: "794"
-  uid: 04e0c491-55ac-4388-8fe6-f5fb9ecdfd98
+  resourceVersion: "751"
+  uid: efebf3a3-1e3f-43b0-9cad-53b0ecb152d0
 spec:
   clusterIP: None
   clusterIPs:
