@@ -191,6 +191,10 @@ cd tools
 ./run.sh
 ```
 
+#### portainer: <https://<server-ip>:30779>
+- user: admin
+- password: <to-be-defined_12-characters_Upper-Lower-Case-and-numbers>
+
 #### pgadmin: <http://aeo.rocketsoftware.com:5050>
 
 - user: <admin@admin.com>
@@ -215,3 +219,6 @@ cd tools
 cd tools
 ./destroy.sh
 ```
+
+
+30779
