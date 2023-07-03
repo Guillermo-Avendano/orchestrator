@@ -83,3 +83,6 @@ install_k3d;
 sudo systemctl restart docker.service
 
 sudo chmod 666 //var/run/docker.sock
+
+helm repo add portainer https://portainer.github.io/k8s/
+helm repo update

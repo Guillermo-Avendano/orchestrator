@@ -1,0 +1,10 @@
+You can start your own local registry it with some docker commands, like:
+
+docker volume create local_registry
+docker container run -d --name registry.localhost -v local_registry:/var/lib/registry --restart always -p 12345:5000 registry:2
+
+These commands will start your registry container with name and port (on your host) registry.localhost:12345. In order to push to this registry, you will need to make it accessible as described in the next section.
+Once your registry is up and running, we will need to add it to your registries.yaml configuration file.
+Finally, you have to connect the registry network to the k3d cluster network: 
+
+docker network connect k3d-k3s-default registry.localhost.
