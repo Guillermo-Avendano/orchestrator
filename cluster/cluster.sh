@@ -22,7 +22,7 @@ create_cluster(){
 
     info_message "Creating $KUBE_CLUSTER_NAME cluster..."
     
-    #DO NOT WORK: gen_registry_yaml;
+    # DO NOT WORK gen_registry_yaml;
 
     KUBE_CLUSTER_REGISTRY="--registry-use k3d-$KUBE_LOCALREGISTRY_NAME:$KUBE_LOCALREGISTRY_PORT --registry-config $kube_dir/cluster/registries.yaml"
 

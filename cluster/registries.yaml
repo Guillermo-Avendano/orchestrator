@@ -1,4 +1,4 @@
 mirrors:
   "localhost:5000":
     endpoint:
-      - http://k3d-mobius.localhost:5000
+      - http://k3d-aeo.localhost:5000

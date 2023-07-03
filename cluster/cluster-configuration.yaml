@@ -1,11 +1,8 @@
-apiVersion: k3d.io/v1alpha2
+apiVersion: k3d.io/v1alpha5
 kind: Simple
 name: rocket
 servers: 1
 agents: 2
-kubeAPI:
-  hostIP: "0.0.0.0"
-  hostPort: "6446"
 image: rancher/k3s:latest
 volumes:
   - volume: /home/rocket/aeo:/home/rocket/aeo
@@ -18,24 +15,16 @@ ports:
   - port: 0.0.0.0:443:443
     nodeFilters:
       - loadbalancer
-env:
-  - envVar: bar=baz
-    nodeFilters:
-      - all
-labels:
-  - label: foo=bar
-    nodeFilters:
-      - server[0]
-      - loadbalancer
 registries:
-  create: true
-  use: []
+  create: 
+    name: rocket_registry
+    host: "0.0.0.0"
+    hostPort: "5000"    
   config: |
     mirrors:
       "rocket.registry":
         endpoint:
           - http://rocket.registry:5000
-
 options:
   k3d:
     wait: true
