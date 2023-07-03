@@ -1,0 +1,12 @@
+{{- if .Values.pgadmin.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-pgadmin
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+{{- end }}      

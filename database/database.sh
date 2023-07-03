@@ -45,7 +45,7 @@ install_database() {
         
         info_message "Deploying pgadmin Helm chart";
 
-        #helm upgrade pgadmin $kube_dir/database/pgadmin-chart/ --namespace $NAMESPACE -f $kube_dir/database/pgadmin-chart/values.yaml --install --wait;
+        helm upgrade pgadmin $kube_dir/database/pgadmin-chart/ --namespace $NAMESPACE -f $kube_dir/database/pgadmin-chart/values.yaml --install --wait;
 
     else
         error_message "Unexpected DATABASE_PROVIDER value: $DATABASE_PROVIDER";
@@ -57,7 +57,7 @@ install_database() {
 uninstall_database() {
     POSTGRES_STORAGE_FILE=postgres-storage.yaml
     helm uninstall postgresql --namespace $NAMESPACE;
-    #helm uninstall pgadmin --namespace $NAMESPACE;
+    helm uninstall pgadmin --namespace $NAMESPACE;
     kubectl delete -f $kube_dir/database/storage/local/$POSTGRES_STORAGE_FILE --namespace $NAMESPACE;
 }
 

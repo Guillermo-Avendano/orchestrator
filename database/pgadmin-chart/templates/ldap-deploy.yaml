@@ -1,0 +1,50 @@
+{{- if .Values.ldap.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ldapserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ldapserver  
+  template:
+    metadata:
+      labels:
+        app: ldapserver  
+    spec:
+      hostname: ldapserver
+      containers:
+      - name: ldapserver
+        image: osixia/openldap
+        imagePullPolicy: IfNotPresent  
+        env:
+        - name: LDAP_ADMIN_USERNAME
+          value: {{ .Values.ldap.user.name }}        
+        - name: LDAP_ADMIN_PASSWORD
+          value: {{ .Values.ldap.user.name }}
+        - name: LDAP_CONFIG_PASSWORD
+          value: {{ .Values.ldap.user.password }}
+        - name: LDAP_DOMAIN
+          value: {{ .Values.ldap.domain }}
+        - name: LDAP_READONLY_USER
+          value: "true"
+        - name: LDAP_READONLY_USER_USERNAME
+          value: {{ .Values.ldap.user.name }}
+        - name: LDAP_READONLY_USER_PASSWORD
+          value: {{ .Values.ldap.user.password }}
+        ports:
+        - containerPort: 389
+        volumeMounts:
+          - mountPath: /var/lib/ldap
+            name: pvc-ldap-data
+          - mountPath: /etc/ldap/slapd.d
+            name: pvc-ldap-config        
+      volumes:
+        - name: pvc-ldap-data
+          persistentVolumeClaim:
+            claimName: pvc-ldap-data
+        - name: pvc-ldap-config
+          persistentVolumeClaim:
+            claimName: pvc-ldap-config
+{{- end }}

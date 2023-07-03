@@ -1,0 +1,28 @@
+{{- if .Values.ldap.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ldapadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ldapadmin
+  template:
+    metadata:
+      labels:
+        app: ldapadmin
+    spec:
+      hostname: ldapadmin
+      containers:
+      - name: ldapadmin
+        image: osixia/phpldapadmin:0.9.0
+        imagePullPolicy: IfNotPresent  
+        env:
+        - name: PHPLDAPADMIN_HTTPS
+          value: "false"
+        - name: PHPLDAPADMIN_LDAP_HOSTS
+          value: "#PYTHON2BASH:[{'{{ .Values.ldap.name }}': [{'server': [{'tls': False}]},{'login': [{'bind_id': '{{ .Values.ldap.bind }}'}]}]}]" 
+        ports:
+        - containerPort: 80
+{{- end }}

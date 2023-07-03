@@ -1,0 +1,34 @@
+{{- if .Values.pgadmin.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin  
+  template:
+    metadata:
+      labels:
+        app: pgadmin  
+    spec:
+      hostname: pgadmin
+      containers:  
+      - name: pgadmin
+        image: dpage/pgadmin4
+        env:
+        - name: PGADMIN_DEFAULT_EMAIL
+          value: {{ .Values.pgadmin.user.mail }} 
+        - name: PGADMIN_DEFAULT_PASSWORD
+          value:  {{ .Values.pgadmin.user.password }} 
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /var/lib/pgadmin
+            name: pvc-pgadmin            
+      volumes:
+        - name: pvc-pgadmin
+          persistentVolumeClaim:
+            claimName: {{ .Values.pgadmin.persistemVolumeClaim }} 
+{{- end }}            

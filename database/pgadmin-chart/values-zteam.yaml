@@ -1,0 +1,18 @@
+
+
+ldap:
+  enabled: true
+  hostname: zenadev-asg.com
+  name: zenadev-asg
+  domain: zenadev.asg.com
+  bind: "cn=admin,dc=zenadev,dc=asg,dc=com"
+  user:
+    name: admin
+    password: admin
+    
+pgadmin:
+  enabled: false
+  hostname: pgadmin.rocket-sandbox.local.net
+  user:
+    mail: admin@admin.com
+    password: admin

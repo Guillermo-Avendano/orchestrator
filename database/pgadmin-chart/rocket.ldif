@@ -1,0 +1,37 @@
+dn: dc=rocketsoftware,dc=com
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: Example Inc.
+dc: rocketsoftware
+
+dn: cn=mobiusadmin,dc=rocketsoftware,dc=com
+objectClass: posixGroup
+objectClass: top
+cn: mobiusadmin
+gidNumber: 59801
+memberUid: gavendano
+
+dn: uid=gavendano,dc=rocketsoftware,dc=com
+objectClass: posixAccount
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: shadowAccount
+gidNumber: 0
+givenName: Guillermo
+initials: GA
+sn: Avendano
+uid: gavendano
+homeDirectory: /home/gavendano
+loginShell: bash
+shadowFlag: 0
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 0
+shadowInactive: 99999
+shadowLastChange: 12011
+shadowExpire: 99999
+cn: gavendano
+uidNumber: 9666
+userPassword: {SHA}a46UQiuWqcTIvz39pZvXpWOAPtc=
+

@@ -1,0 +1,16 @@
+{{- if .Values.ldap.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ldapserver
+  name: {{ .Values.ldap.name }} 
+spec:
+  type: NodePort
+  ports:
+  - name: "389"
+    port: 389
+    targetPort: 389
+  selector:
+    app: ldapserver
+{{- end }}
