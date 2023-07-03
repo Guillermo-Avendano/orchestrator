@@ -66,7 +66,7 @@ AEO_URL = "aeo.rocketsoftware.com"
 ### Add AEO_URL to /etc/hosts, or c:/windows/system32/drivers/etc/hosts with the IP where the custer is running, example
 
 ```bash
-192.168.0.5     aeo.rocketsoftware.com
+192.168.0.5     aeo.rocketsoftware.com pgadmin.local.net
 ```
 
 ## Installation sequence
@@ -149,7 +149,6 @@ cd aeo
 |:---|:---|
 | ./rockcluster.sh on | start aeo cluster |
 | ./rockcluster.sh off | stop aeo cluster |
-| ./rockcluster.sh pgport | Open postgres port if active for remote access from SQL tools |
 | ./rockcluster.sh imgls | list images from registry.rocketsoftware.com |
 | ./rockcluster.sh imgpull | pull images from registry.rocketsoftware.com |
 | ./rockcluster.sh list | list clusters |
@@ -181,44 +180,14 @@ cd aeo
 ./remove_database.sh
 ```
 
-### Activate pgadmin & grafana (pre-requisite: "./rockcluster.sh pgport")
-
-- Start pgadmin & Grafana
-
-```bash
-# orchestrator folder
-cd tools
-./run.sh
-```
-
 #### portainer: <https://<server-ip>:30779>
+
 - user: admin
 - password: <to-be-defined_12-characters_Upper-Lower-Case-and-numbers>
 
-#### pgadmin: <http://aeo.rocketsoftware.com:5050>
+#### pgadmin: <http://pgadmin.local.net>
 
 - user: <admin@admin.com>
 - password: admin
 
-server: IP Address where cluster is running , database=aeo, user=aeo, password=aeo
-
-#### grafana: <http://aeo.rocketsoftware.com:3000>
-
-### Stop pgadmin & grafana
-
-```bash
-# orchestrator folder
-cd tools
-./stop.sh
-```
-
-### Delete pgadmin & grafana
-
-```bash
-# orchestrator folder
-cd tools
-./destroy.sh
-```
-
-
-30779
+server: postgresql , database=aeo, user=aeo, password=aeo

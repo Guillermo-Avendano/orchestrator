@@ -14,7 +14,6 @@ if [[ $# -eq 0 ]]; then
   echo "==========="
   echo " - on      : start $PRODUCT cluster"
   echo " - off     : stop $PRODUCT cluster"
-  echo " - pgport  : Open postgres port $POSTGRESQL_PORT if active"
   echo " - imgls   : list images from $KUBE_SOURCE_REGISTRY (var KUBE_IMAGES in env.sh)"
   echo " - imgpull : pull images from $KUBE_SOURCE_REGISTRY (var KUBE_IMAGES in env.sh)"
   echo " - list    : list clusters"
@@ -42,16 +41,6 @@ else
             stop_cluster;
          else
             echo "$KUBE_CLUSTER_NAME cluster is not active"
-         fi
-
-    elif [[ $option == "pgport" ]]; then
-
-         if get_database_status; then
-            # cluster/cluster.sh
-            sudo ufw allow 5432
-            configure_port_forwarding;
-         else
-            echo "$POSTGRESQL_PORT is not active"
          fi
 		 
     elif [[ $option == "imgls" ]]; then
