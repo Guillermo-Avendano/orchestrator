@@ -5,6 +5,7 @@ ldap:
   hostname: ldap.rocket-sandbox.local.net
   name: ldapserver
   domain: aeo.rocketsoftware.com
+  className: nginx
   bind: "cn=admin,dc=aeo,dc=rocketsoftware,dc=com"
   user:
     name: admin
@@ -14,6 +15,7 @@ pgadmin:
   persistemVolumeClaim: pvc-pgadmin
   enabled: true
   hostname: pgadmin.local.net
+  className: nginx
   user:
     mail: admin@admin.com
     password: admin

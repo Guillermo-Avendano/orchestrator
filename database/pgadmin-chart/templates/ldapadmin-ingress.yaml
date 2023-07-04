@@ -6,7 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: public
+  ingressClassName:  {{ .Values.ldap.className}} 
   rules:
   - host: {{ .Values.ldap.hostname}} 
     http:

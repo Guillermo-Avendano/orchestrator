@@ -27,7 +27,6 @@ agent:
   image: <agent_image>
   name: aeo-agent
     
-
 ingress:
   enabled: true
   className: "nginx"

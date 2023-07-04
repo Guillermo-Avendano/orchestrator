@@ -4,13 +4,13 @@
 
 scheduler:
   replicas: 2
-  image: localhost:5000/aeo/scheduler:4.3.1.61
+  image: localhost:5000/aeo/scheduler:4.3.2.106
   enabled: true
   name: aeo-scheduler
 
 clientmgr:
   replicas: 1
-  image: localhost:5000/aeo/clientmgr:4.3.1.61
+  image: localhost:5000/aeo/clientmgr:4.3.2.106
   name: aeo-clientmgr
 
 database:
@@ -24,14 +24,13 @@ database:
 
 agent:
   enabled: true
-  image: localhost:5000/aeo/agent:4.3.1.58
+  image: localhost:5000/aeo/agent:4.3.2.106
   name: aeo-agent
     
-
 ingress:
   enabled: true
   className: "nginx"
-  host: aeo.rocketsoftware.com
+  host: orchestrator.local.net
   #tls:
   #  secretName: "tls-aeo"
     # aeo.rocket-sandbox.local.net crt, and key certificate files in base64

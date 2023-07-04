@@ -30,11 +30,11 @@ NGINX_EXTERNAL_TLS_PORT=443
 # REO IMAGES
 ################################################################################
 IMAGE_SCHEDULER_NAME=aeo/scheduler
-IMAGE_SCHEDULER_VERSION=4.3.1.61
+IMAGE_SCHEDULER_VERSION=4.3.2.106
 IMAGE_CLIENTMGR_NAME=aeo/clientmgr
-IMAGE_CLIENTMGR_VERSION=4.3.1.61
+IMAGE_CLIENTMGR_VERSION=4.3.2.106
 IMAGE_AGENT_NAME=aeo/agent
-IMAGE_AGENT_VERSION=4.3.1.58
+IMAGE_AGENT_VERSION=4.3.2.106
 
 export KUBE_IMAGES=("$IMAGE_SCHEDULER_NAME:$IMAGE_SCHEDULER_VERSION" "$IMAGE_CLIENTMGR_NAME:$IMAGE_CLIENTMGR_VERSION" "$IMAGE_AGENT_NAME:$IMAGE_AGENT_VERSION") # cluster/local_registry.sh
 
@@ -56,6 +56,6 @@ POSTGRESQL_PORT=5432
 export POSTGRES_VALUES_TEMPLATE=postgres-aeo.yaml
 
 #########################################
-export AEO_URL="aeo.rocketsoftware.com"
+export AEO_URL="orchestrator.local.net"
 
 
