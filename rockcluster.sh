@@ -12,8 +12,8 @@ echo "----------------"
 if [[ $# -eq 0 ]]; then  
   echo "Parameters:"
   echo "==========="
-  echo " - on      : start $PRODUCT cluster"
-  echo " - off     : stop $PRODUCT cluster"
+  echo " - start   : start $PRODUCT cluster"
+  echo " - stop    : stop $PRODUCT cluster"
   echo " - imgls   : list images from $KUBE_SOURCE_REGISTRY (var KUBE_IMAGES in env.sh)"
   echo " - imgpull : pull images from $KUBE_SOURCE_REGISTRY (var KUBE_IMAGES in env.sh)"
   echo " - list    : list clusters"
@@ -23,7 +23,7 @@ if [[ $# -eq 0 ]]; then
  
 else
   for option in "$@"; do
-    if [[ $option == "on" ]]; then
+    if [[ $option == "start" ]]; then
 
          if ! exist_cluster; then
             echo "$KUBE_CLUSTER_NAME cluster doesn't exist"
@@ -34,7 +34,7 @@ else
             start_cluster;
          fi
 
-    elif [[ $option == "off" ]]; then
+    elif [[ $option == "stop" ]]; then
 
          if isactive_cluster; then
             # cluster/cluster.sh

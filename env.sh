@@ -15,14 +15,21 @@ PRODUCT="Enterprise Orchestrator"
 
 export KUBECONFIG=$kube_dir/cluster/.cluster-config.yaml    # cluster/cluster.sh
 chmod o-wrx,g-wrx $kube_dir/cluster/.cluster-config.yaml
+
 DOCKER_USER=$DOCKER_USERNAME                        # $HOME/.profile cluster/local_registry.sh
 DOCKER_PASS=$DOCKER_PASSWORD                        # $HOME/.profile cluster/local_registry.sh
+
+# Storage Class
+KUBE_CLUSTER_STORAGE=$kube_dir/pv-cluster           # cluster/cluster.sh
 
 KUBE_SOURCE_REGISTRY="registry.rocketsoftware.com"  # cluster/local_registry.sh
 KUBE_LOCALREGISTRY_NAME="aeo.localhost"             # cluster/local_registry.sh
 KUBE_LOCALREGISTRY_HOST="localhost"                 # cluster/local_registry.sh
 KUBE_LOCALREGISTRY_PORT="5000"                      # cluster/local_registry.sh
 KUBE_IMAGE_PULL="YES"                               # cluster/cluster.sh
+KUBE_PORTAINER="YES"                                # cluster/cluster.sh
+KUBE_PGADMIN="YES"                                  # database/database.sh
+
 export KUBE_NS_LIST=( "$NAMESPACE" )
 NGINX_EXTERNAL_TLS_PORT=443
 

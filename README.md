@@ -147,8 +147,8 @@ cd aeo
 
 | Command | Description |
 |:---|:---|
-| ./rockcluster.sh on | start aeo cluster |
-| ./rockcluster.sh off | stop aeo cluster |
+| ./rockcluster.sh start | start aeo cluster |
+| ./rockcluster.sh stop | stop aeo cluster |
 | ./rockcluster.sh imgls | list images from registry.rocketsoftware.com |
 | ./rockcluster.sh imgpull | pull images from registry.rocketsoftware.com |
 | ./rockcluster.sh list | list clusters |
